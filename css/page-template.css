@@ -1,8 +1,16 @@
 /* Page Template Styles */
 
 /* Ensure header starts transparent on template pages */
-body #header,
-body #header * {
+body #header {
+  background: transparent !important;
+}
+
+/* Keep dropdown backgrounds and hamburger menu intact */
+body
+  #header
+  *:not(.desktop-dropdown-menu):not(.desktop-dropdown-menu *):not(
+    .hamburger
+  ):not(.hamburger *) {
   background: transparent !important;
 }
 
@@ -115,12 +123,12 @@ body .hamburger,
   visibility: visible !important;
   opacity: 1 !important;
   position: fixed !important;
-  top: 70px !important;
+  top: 60px !important;
   right: 15px !important;
   z-index: 999999 !important;
   width: 45px !important;
   height: 45px !important;
-  background: #ff6b35 !important;
+  background: transparent !important;
   border: none !important;
   border-radius: 8px !important;
   cursor: pointer !important;
@@ -130,7 +138,7 @@ body .hamburger,
   gap: 4px !important;
   padding: 0 !important;
   margin: 0 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: none !important;
 }
 
 body .hamburger span,
@@ -148,15 +156,6 @@ body .hamburger span,
   position: relative !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-/* Desktop hide */
-@media (min-width: 992px) {
-  body .hamburger,
-  #hamburger,
-  .hamburger {
-    display: none !important;
-  }
 }
 
 .hamburger:focus {

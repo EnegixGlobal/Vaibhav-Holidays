@@ -10,10 +10,35 @@ class LayoutManager {
       const element = document.getElementById(elementId);
       if (element) {
         element.innerHTML = html;
+
+        // Fix navigation links after loading header
+        if (elementId === "header-placeholder") {
+          this.fixNavigationLinks();
+        }
       }
     } catch (error) {
       console.error("Error loading component:", error);
     }
+  }
+
+  static fixNavigationLinks() {
+    // Check if we're on the homepage
+    const isHomepage =
+      window.location.pathname.includes("index.html") ||
+      window.location.pathname === "/" ||
+      window.location.pathname.endsWith("/");
+
+    // Update About Us links based on current page
+    const aboutLinks = document.querySelectorAll('a[href="about.html"]');
+    aboutLinks.forEach((link) => {
+      if (isHomepage) {
+        // On homepage, link to about section
+        link.href = "#about";
+      } else {
+        // On other pages, link to about.html
+        link.href = "about.html";
+      }
+    });
   }
 
   static async init() {
@@ -30,8 +55,8 @@ class LayoutManager {
   }
 
   static initNavigation() {
-    console.log('Initializing navigation...');
-    
+    console.log("Initializing navigation...");
+
     // Mobile menu toggle - using hamburger button like in main page
     const hamburger = document.getElementById("hamburger");
     const navOverlay = document.getElementById("nav-overlay");
@@ -42,23 +67,28 @@ class LayoutManager {
       if (hamburger) {
         const isMobile = window.innerWidth <= 991;
         if (isMobile) {
-          hamburger.style.display = 'flex';
-          hamburger.style.flexDirection = 'column';
-          hamburger.style.justifyContent = 'center';
-          hamburger.style.alignItems = 'center';
+          hamburger.style.display = "flex";
+          hamburger.style.flexDirection = "column";
+          hamburger.style.justifyContent = "center";
+          hamburger.style.alignItems = "center";
         } else {
-          hamburger.style.display = 'none';
+          hamburger.style.display = "none";
         }
-        console.log('Mobile check:', isMobile, 'Hamburger display:', hamburger.style.display);
+        console.log(
+          "Mobile check:",
+          isMobile,
+          "Hamburger display:",
+          hamburger.style.display
+        );
       }
     };
-    
+
     // Initial setup
     updateHamburgerVisibility();
-    
+
     if (hamburger) {
       hamburger.addEventListener("click", () => {
-        console.log('Hamburger clicked');
+        console.log("Hamburger clicked");
         if (navOverlay) {
           navOverlay.classList.add("active");
           document.body.style.overflow = "hidden";
@@ -82,6 +112,20 @@ class LayoutManager {
         }
       });
     }
+
+    // Close mobile menu when clicking navigation links
+    const navLinks = document.querySelectorAll(".nav-overlay .nav-link");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        // If it's a regular link (not dropdown toggle), close the menu
+        if (!link.classList.contains("dropdown-toggle")) {
+          if (navOverlay) {
+            navOverlay.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        }
+      });
+    });
 
     // Handle window resize to show/hide hamburger
     window.addEventListener("resize", updateHamburgerVisibility);
