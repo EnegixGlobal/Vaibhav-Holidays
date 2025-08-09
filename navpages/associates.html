@@ -1,0 +1,1040 @@
+<style>
+  body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 80px 0 20px 0;
+    background: #2c2c2c;
+  }
+
+  .sec_padding50 {
+    padding: 50px 0;
+    background: #2c2c2c;
+    /* margin-top: 20px; */
+  }
+
+  .itinerary_block {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #eaeef3;
+  }
+
+  .itinerary_block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .itinerary_block img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .itinerary_block:hover img {
+    transform: scale(1.03);
+  }
+
+  .itinerary_block h4 {
+    padding: 15px 20px;
+    margin: 0;
+    color: #1a2a44;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eaeef3;
+  }
+
+  .book-now-btn {
+    display: block;
+    width: calc(100% - 40px);
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #00c4cc 0%, #009ba1 100%);
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 15px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    border: none;
+  }
+
+  .book-now-btn:hover {
+    background: linear-gradient(135deg, #009ba1 0%, #00c4cc 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 196, 204, 0.2);
+    color: #fff !important;
+  }
+
+  .section-title {
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .section-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #00c4cc, #009ba1);
+  }
+
+  .no-underline:after {
+    display: none !important;
+  }
+
+  .destination-link {
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+    display: block;
+  }
+
+  .image-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .destination-link:hover img {
+    transform: scale(1.03);
+  }
+
+  .hotel-services {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .services-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .services-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #1a2a44;
+  }
+
+  .services-list i {
+    color: #00c4cc;
+    font-size: 20px;
+    width: 24px;
+  }
+
+  @media (max-width: 1199px) {
+    .itinerary_block img {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .itinerary_block img {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .itinerary_block {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .itinerary_block img {
+      height: 200px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-list ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+<section class="sec_padding50">
+  <div class="container">
+    <!-- Main Header -->
+    <div class="row">
+      <div class="col-12">
+        <h2
+          class="section-title no-underline"
+          style="font-size: 40px; margin-bottom: 90px"
+        ></h2>
+      </div>
+    </div>
+
+    <!-- Jammu & Kashmir -->
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-title">🏔️ Jammu & Kashmir</h3>
+      </div>
+
+      <!-- Hotel 33, Katra -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
+                alt="Hotel 33"
+              />
+              <h4>Hotel 33, Katra</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Hotel Imperial, Katra -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
+                alt="Hotel Imperial"
+              />
+              <h4>Hotel Imperial, Katra</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Hotel Grand Ali, Srinagar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg"
+                alt="Hotel Grand Ali"
+              />
+              <h4>Hotel Grand Ali, Srinagar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Grand M.S, Srinagar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg"
+                alt="Grand M.S"
+              />
+              <h4>Grand M.S, Srinagar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Royal Batoo, Srinagar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+                alt="Royal Batoo"
+              />
+              <h4>Royal Batoo, Srinagar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Asians Park, Srinagar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg"
+                alt="Asians Park"
+              />
+              <h4>Asians Park, Srinagar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Pine Cliff Resort, Pahalgam -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg"
+                alt="Pine Cliff Resort"
+              />
+              <h4>Pine Cliff Resort, Pahalgam</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Grand Akbar, Pahalgam -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg"
+                alt="Grand Akbar"
+              />
+              <h4>Grand Akbar, Pahalgam</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Himachal Pradesh -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="section-title">❄️ Himachal Pradesh</h3>
+      </div>
+
+      <!-- Snow White Regency, Manali -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+                alt="Snow White Regency"
+              />
+              <h4>Snow White Regency, Manali</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Manali Grand, Manali -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
+                alt="Manali Grand"
+              />
+              <h4>Manali Grand, Manali</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Samita Grand, Manali -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg"
+                alt="Samita Grand"
+              />
+              <h4>Samita Grand, Manali</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Sandhya Kasol, Kasol -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg"
+                alt="Sandhya Kasol"
+              />
+              <h4>Sandhya Kasol, Kasol</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Hotel SukhSagar, Shimla -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
+                alt="Hotel SukhSagar"
+              />
+              <h4>Hotel SukhSagar, Shimla</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Hotel Kings Comfort Court, Dalhousie -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
+                alt="Hotel Kings Comfort Court"
+              />
+              <h4>Hotel Kings Comfort Court, Dalhousie</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Classic Hills Resort, Dharamshala -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+                alt="Classic Hills Resort"
+              />
+              <h4>Classic Hills Resort, Dharamshala</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Uttarakhand -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="section-title">🕉️ Uttarakhand</h3>
+      </div>
+
+      <!-- Hotel Shivalaya, Haridwar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg"
+                alt="Hotel Shivalaya"
+              />
+              <h4>Hotel Shivalaya, Haridwar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Evana Hotel, Rishikesh -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg"
+                alt="Evana Hotel"
+              />
+              <h4>Evana Hotel, Rishikesh</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Dynasty Resort, Nainital -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
+                alt="Dynasty Resort"
+              />
+              <h4>Dynasty Resort, Nainital</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Corbett View Resort, Corbett -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg"
+                alt="Corbett View Resort"
+              />
+              <h4>Corbett View Resort, Corbett</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Uttar Pradesh -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="section-title">🌅 Uttar Pradesh</h3>
+      </div>
+
+      <!-- S. G. T Plaza, Varanasi -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg"
+                alt="S. G. T Plaza"
+              />
+              <h4>S. G. T Plaza, Varanasi</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Vatica Paradise, Ayodhya -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg"
+                alt="Vatica Paradise"
+              />
+              <h4>Vatica Paradise, Ayodhya</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Baba Biswanath Palace, Prayagraj -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg"
+                alt="Baba Biswanath Palace"
+              />
+              <h4>Baba Biswanath Palace, Prayagraj</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Sita International, Delhi -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
+                alt="Sita International"
+              />
+              <h4>Sita International, Delhi</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Odisha -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="section-title">🌊 Odisha</h3>
+      </div>
+
+      <!-- Naren Palace, Puri -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
+                alt="Naren Palace"
+              />
+              <h4>Naren Palace, Puri</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- S. K. S Beach Resort, Puri -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg"
+                alt="S. K. S Beach Resort"
+              />
+              <h4>S. K. S Beach Resort, Puri</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Triple Tree, Bhubaneswar -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg"
+                alt="Triple Tree"
+              />
+              <h4>Triple Tree, Bhubaneswar</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- North East India -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <h3 class="section-title">🏞️ North East India</h3>
+      </div>
+
+      <!-- AnanTam Retreat, Darjeeling -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg"
+                alt="AnanTam Retreat"
+              />
+              <h4>AnanTam Retreat, Darjeeling</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Rice Valley, Gangtok -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
+                alt="Rice Valley"
+              />
+              <h4>Rice Valley, Gangtok</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Golden Ice, Pelling -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
+                alt="Golden Ice"
+              />
+              <h4>Golden Ice, Pelling</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Crystal Palace, Guwahati -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
+                alt="Crystal Palace"
+              />
+              <h4>Crystal Palace, Guwahati</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+
+      <!-- Mon Paradise, Tawang -->
+      <div class="col-md-3 col-sm-6 mb-4">
+        <div class="itinerary_block">
+          <a
+            href="https://vaibhavholidays.com/our-hotels/"
+            class="destination-link"
+          >
+            <div class="image-title-wrapper">
+              <img
+                src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
+                alt="Mon Paradise"
+              />
+              <h4>Mon Paradise, Tawang</h4>
+            </div>
+          </a>
+          <a
+            href="tel:+919874461905"
+            class="book-now-btn"
+            onclick="event.stopPropagation(); return true;"
+            >Book Now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec_padding50">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="hotel-services">
+          <h3 class="section-title">Hotel Amenities</h3>
+          <div class="services-list">
+            <ul>
+              <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+              <li><i class="fas fa-parking"></i> Free Parking</li>
+              <li><i class="fas fa-utensils"></i> Restaurant</li>
+              <li><i class="fas fa-concierge-bell"></i> Room Service</li>
+              <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
+              <li><i class="fas fa-tv"></i> TV</li>
+              <li><i class="fas fa-wheelchair"></i> Accessibility</li>
+              <li><i class="fas fa-clock"></i> 24/7 Front Desk</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Book Now button click handler
+    document.querySelectorAll(".book-now-btn").forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = "tel:+919874461905";
+      });
+    });
+
+    // Handle destination links separately from dropdown toggles
+    document.querySelectorAll(".destination-link").forEach((link) => {
+      link.addEventListener("click", function (e) {
+        // Only navigate if the click wasn't on the Book Now button
+        if (e.target.closest(".book-now-btn")) {
+          e.preventDefault();
+        }
+      });
+    });
+  });
+</script>
