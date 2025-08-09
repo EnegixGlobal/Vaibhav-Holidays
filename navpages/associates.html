@@ -11,1016 +11,1277 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --vh-primary: #00c4cc;
+        --vh-primary-dark: #009ba1;
+        --vh-deep: #0f172a;
+        --vh-soft: #f5f8fb;
+        --vh-text: #1a2a44;
+      }
       body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 80px 0 20px 0;
-        background: #2c2c2c;
+        padding-top: 0;
+        background: var(--vh-soft);
       }
 
-      .sec_padding50 {
-        padding: 50px 0;
-        background: #2c2c2c;
-        /* margin-top: 20px; */
-      }
-
-      .itinerary_block {
+      /* Hero */
+      .hero {
         position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s ease;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        background: #fff;
-        border: 1px solid #eaeef3;
-      }
-
-      .itinerary_block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      }
-
-      .itinerary_block img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .itinerary_block:hover img {
-        transform: scale(1.03);
-      }
-
-      .itinerary_block h4 {
-        padding: 15px 20px;
-        margin: 0;
-        color: #1a2a44;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 1px solid #eaeef3;
-      }
-
-      .book-now-btn {
-        display: block;
-        width: calc(100% - 40px);
-        padding: 12px 25px;
-        background: linear-gradient(135deg, #00c4cc 0%, #009ba1 100%);
-        color: #fff !important;
-        text-decoration: none;
-        border-radius: 4px;
-        margin: 15px 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 14px;
-        position: relative;
-        z-index: 2;
-        cursor: pointer;
-        border: none;
-      }
-
-      .book-now-btn:hover {
-        background: linear-gradient(135deg, #009ba1 0%, #00c4cc 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 196, 204, 0.2);
-        color: #fff !important;
-      }
-
-      .section-title {
-        color: #ffffff;
-        text-align: center;
-        position: relative;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
-        font-size: 32px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .section-title:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: linear-gradient(to right, #00c4cc, #009ba1);
-      }
-
-      .no-underline:after {
-        display: none !important;
-      }
-
-      .destination-link {
-        text-decoration: none;
-        color: inherit;
-        flex-grow: 1;
-        display: block;
-      }
-
-      .image-title-wrapper {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .destination-link:hover img {
-        transform: scale(1.03);
-      }
-
-      .hotel-services {
-        background: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .services-list ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+        min-height: 300px;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+        place-items: center;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(
+            rgba(15, 23, 42, 0.55),
+            rgba(15, 23, 42, 0.55)
+          ),
+          url("https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+      }
+      .hero .title {
+        font-size: 40px;
+        font-weight: 800;
+        margin: 0 0 8px;
+      }
+      .hero .subtitle {
+        opacity: 0.9;
       }
 
-      .services-list li {
+      /* Cards grid */
+      .hotels {
+        padding: 50px 0;
+      }
+      .hotels .container {
+        max-width: 1120px;
+      }
+      .hotels .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 992px) {
+        .hotels .row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e9eef4;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+        transition: transform 0.25s, box-shadow 0.25s;
         display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 16px;
-        color: #1a2a44;
+        flex-direction: column;
       }
-
-      .services-list i {
-        color: #00c4cc;
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(16, 24, 40, 0.1);
+      }
+      .cover {
+        position: relative;
+      }
+      .cover img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+      }
+      .rating {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .body {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .name {
+        margin: 0;
         font-size: 20px;
-        width: 24px;
+        font-weight: 800;
+        color: var(--vh-text);
+      }
+      .loc {
+        color: #6b7a90;
+        font-size: 14px;
+      }
+      .amen {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        background: #f0fbfb;
+        color: #146c72;
+        border: 1px solid #c7eff0;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+      .btn {
+        flex: 1;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+      .btn.primary {
+        background: linear-gradient(
+          135deg,
+          var(--vh-primary),
+          var(--vh-primary-dark)
+        );
+        color: #fff;
+      }
+      .btn.ghost {
+        background: #fff;
+        border: 1px solid #d7e3ec;
+        color: var(--vh-text);
+      }
+      .btn.ghost:hover {
+        background: #f6fafc;
+      }
+      .region {
+        margin: 10px 0 16px;
+        color: var(--vh-text);
+        font-weight: 800;
+        font-size: 24px;
       }
 
-      @media (max-width: 1199px) {
-        .itinerary_block img {
-          height: 200px;
-        }
+      /* Lightbox (shared dynamic) */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 24px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox-content {
+        background: #0a1226;
+        border: 1px solid #1b2a44;
+        border-radius: 16px;
+        max-width: 1100px;
+        width: 100%;
+        max-height: 90vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        color: #e2e8f0;
+        background: #0f172a;
+        border-bottom: 1px solid #1e293b;
+      }
+      .lightbox-grid {
+        padding: 12px;
+        background: #0b1325;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        overflow: auto;
+      }
+      .lightbox-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #1e293b;
+      }
+      .close-btn {
+        background: transparent;
+        border: none;
+        color: #cbd5e1;
+        font-size: 22px;
+        cursor: pointer;
+      }
+      .close-btn:hover {
+        color: #ffffff;
       }
 
-      @media (max-width: 991px) {
-        .itinerary_block img {
-          height: 180px;
+      /* Why us */
+      .why {
+        padding: 10px 0 60px;
+      }
+      .why .container {
+        max-width: 1120px;
+      }
+      .why .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      @media (min-width: 992px) {
+        .why .row {
+          grid-template-columns: repeat(4, 1fr);
         }
       }
-
-      @media (max-width: 767px) {
-        .itinerary_block {
-          margin-bottom: 20px;
-        }
+      .why-card {
+        background: #fff;
+        border: 1px solid #e9eef4;
+        border-radius: 14px;
+        padding: 22px;
+        height: 100%;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+        text-align: center;
       }
-
-      @media (max-width: 575px) {
-        .itinerary_block img {
-          height: 200px;
-        }
-
-        .section-title {
-          font-size: 26px;
-          margin-bottom: 30px;
-        }
+      .why-card i {
+        color: var(--vh-primary-dark);
+        font-size: 22px;
       }
-
-      @media (max-width: 768px) {
-        .services-list ul {
-          grid-template-columns: 1fr;
-        }
+      .why-card h5 {
+        margin: 8px 0 6px;
+        color: var(--vh-text);
+        font-weight: 800;
+      }
+      .why-card p {
+        margin: 0;
+        color: #5b6a80;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <section class="sec_padding50">
+
+    <section class="hero">
       <div class="container">
-        <!-- Main Header -->
-        <div class="row">
-          <div class="col-12">
-            <h2
-              class="section-title no-underline"
-              style="font-size: 40px; margin-bottom: 90px"
-            ></h2>
-          </div>
+        <h1 class="title">Associate Hotels</h1>
+        <div class="subtitle">
+          Trusted partner properties across destinations
         </div>
+      </div>
+    </section>
 
+    <section class="hotels">
+      <div class="container">
         <!-- Jammu & Kashmir -->
+        <h2 class="region">🏔️ Jammu & Kashmir</h2>
         <div class="row">
-          <div class="col-12">
-            <h3 class="section-title">🏔️ Jammu & Kashmir</h3>
-          </div>
-
-          <!-- Hotel 33, Katra -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
-                    alt="Hotel 33"
-                  />
-                  <h4>Hotel 33, Katra</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel 33, Katra"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.4</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel 33</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Katra, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('h33','Hotel 33 — Katra')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Hotel Imperial, Katra -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
-                    alt="Hotel Imperial"
-                  />
-                  <h4>Hotel Imperial, Katra</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel Imperial, Katra"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.3</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel Imperial</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Katra, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('hi','Hotel Imperial — Katra')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Hotel Grand Ali, Srinagar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg"
-                    alt="Hotel Grand Ali"
-                  />
-                  <h4>Hotel Grand Ali, Srinagar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel Grand Ali, Srinagar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel Grand Ali</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Srinagar, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('hga','Hotel Grand Ali — Srinagar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Grand M.S, Srinagar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg"
-                    alt="Grand M.S"
-                  />
-                  <h4>Grand M.S, Srinagar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Grand M.S, Srinagar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Grand M.S</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Srinagar, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('gms','Grand M.S — Srinagar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Royal Batoo, Srinagar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
-                    alt="Royal Batoo"
-                  />
-                  <h4>Royal Batoo, Srinagar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Royal Batoo, Srinagar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.5</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Royal Batoo</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Srinagar, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('rb','Royal Batoo — Srinagar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Asians Park, Srinagar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg"
-                    alt="Asians Park"
-                  />
-                  <h4>Asians Park, Srinagar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Asians Park, Srinagar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Asians Park</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Srinagar, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('ap','Asians Park — Srinagar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Pine Cliff Resort, Pahalgam -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg"
-                    alt="Pine Cliff Resort"
-                  />
-                  <h4>Pine Cliff Resort, Pahalgam</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Pine Cliff Resort, Pahalgam"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.3</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Pine Cliff Resort</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Pahalgam, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('pcr','Pine Cliff Resort — Pahalgam')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Grand Akbar, Pahalgam -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg"
-                    alt="Grand Akbar"
-                  />
-                  <h4>Grand Akbar, Pahalgam</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Grand Akbar, Pahalgam"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Grand Akbar</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Pahalgam, J&K
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('ga','Grand Akbar — Pahalgam')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Himachal Pradesh -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3 class="section-title">❄️ Himachal Pradesh</h3>
-          </div>
-
-          <!-- Snow White Regency, Manali -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
-                    alt="Snow White Regency"
-                  />
-                  <h4>Snow White Regency, Manali</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+        <h2 class="region">❄️ Himachal Pradesh</h2>
+        <div class="row">
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Snow White Regency, Manali"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.3</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Snow White Regency</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Manali, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('swr','Snow White Regency — Manali')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Manali Grand, Manali -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
-                    alt="Manali Grand"
-                  />
-                  <h4>Manali Grand, Manali</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Manali Grand, Manali"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Manali Grand</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Manali, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('mg','Manali Grand — Manali')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Samita Grand, Manali -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg"
-                    alt="Samita Grand"
-                  />
-                  <h4>Samita Grand, Manali</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Samita Grand, Manali"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Samita Grand</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Manali, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('sgm','Samita Grand — Manali')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Sandhya Kasol, Kasol -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg"
-                    alt="Sandhya Kasol"
-                  />
-                  <h4>Sandhya Kasol, Kasol</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Sandhya Kasol, Kasol"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.4</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Sandhya Kasol</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Kasol, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('sk','Sandhya Kasol — Kasol')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Hotel SukhSagar, Shimla -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
-                    alt="Hotel SukhSagar"
-                  />
-                  <h4>Hotel SukhSagar, Shimla</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel SukhSagar, Shimla"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel SukhSagar</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Shimla, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('hss','Hotel SukhSagar — Shimla')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Hotel Kings Comfort Court, Dalhousie -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
-                    alt="Hotel Kings Comfort Court"
-                  />
-                  <h4>Hotel Kings Comfort Court, Dalhousie</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel Kings Comfort Court, Dalhousie"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel Kings Comfort Court</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Dalhousie, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('hkcc','Hotel Kings Comfort Court — Dalhousie')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Classic Hills Resort, Dharamshala -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
-                    alt="Classic Hills Resort"
-                  />
-                  <h4>Classic Hills Resort, Dharamshala</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Classic Hills Resort, Dharamshala"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.3</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Classic Hills Resort</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Dharamshala, HP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('chr','Classic Hills Resort — Dharamshala')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Uttarakhand -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3 class="section-title">🕉️ Uttarakhand</h3>
-          </div>
-
-          <!-- Hotel Shivalaya, Haridwar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg"
-                    alt="Hotel Shivalaya"
-                  />
-                  <h4>Hotel Shivalaya, Haridwar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+        <h2 class="region">🕉️ Uttarakhand</h2>
+        <div class="row">
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Hotel Shivalaya, Haridwar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.0</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Hotel Shivalaya</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Haridwar, UK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('hs','Hotel Shivalaya — Haridwar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Evana Hotel, Rishikesh -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg"
-                    alt="Evana Hotel"
-                  />
-                  <h4>Evana Hotel, Rishikesh</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Evana Hotel, Rishikesh"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Evana Hotel</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Rishikesh, UK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('eh','Evana Hotel — Rishikesh')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Dynasty Resort, Nainital -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
-                    alt="Dynasty Resort"
-                  />
-                  <h4>Dynasty Resort, Nainital</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Dynasty Resort, Nainital"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.4</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Dynasty Resort</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Nainital, UK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('dr','Dynasty Resort — Nainital')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Corbett View Resort, Corbett -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg"
-                    alt="Corbett View Resort"
-                  />
-                  <h4>Corbett View Resort, Corbett</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Corbett View Resort, Corbett"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Corbett View Resort</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Corbett, UK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('cvr','Corbett View Resort — Corbett')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Uttar Pradesh -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3 class="section-title">🌅 Uttar Pradesh</h3>
-          </div>
-
-          <!-- S. G. T Plaza, Varanasi -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg"
-                    alt="S. G. T Plaza"
-                  />
-                  <h4>S. G. T Plaza, Varanasi</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+        <h2 class="region">🌅 Uttar Pradesh</h2>
+        <div class="row">
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="S. G. T Plaza, Varanasi"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.0</span>
+            </div>
+            <div class="body">
+              <h3 class="name">S. G. T Plaza</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Varanasi, UP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('sgt','S. G. T Plaza — Varanasi')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Vatica Paradise, Ayodhya -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg"
-                    alt="Vatica Paradise"
-                  />
-                  <h4>Vatica Paradise, Ayodhya</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Vatica Paradise, Ayodhya"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Vatica Paradise</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Ayodhya, UP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('vp','Vatica Paradise — Ayodhya')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Baba Biswanath Palace, Prayagraj -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg"
-                    alt="Baba Biswanath Palace"
-                  />
-                  <h4>Baba Biswanath Palace, Prayagraj</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Baba Biswanath Palace, Prayagraj"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Baba Biswanath Palace</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Prayagraj, UP
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('bbp','Baba Biswanath Palace — Prayagraj')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Sita International, Delhi -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
-                    alt="Sita International"
-                  />
-                  <h4>Sita International, Delhi</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Sita International, Delhi"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.0</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Sita International</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Delhi, DL
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('si','Sita International — Delhi')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Odisha -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3 class="section-title">🌊 Odisha</h3>
-          </div>
-
-          <!-- Naren Palace, Puri -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
-                    alt="Naren Palace"
-                  />
-                  <h4>Naren Palace, Puri</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+        <h2 class="region">🌊 Odisha</h2>
+        <div class="row">
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Naren Palace, Puri"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Naren Palace</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Puri, Odisha
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-umbrella-beach"></i> Beach</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('np','Naren Palace — Puri')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- S. K. S Beach Resort, Puri -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg"
-                    alt="S. K. S Beach Resort"
-                  />
-                  <h4>S. K. S Beach Resort, Puri</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="S. K. S Beach Resort, Puri"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">S. K. S Beach Resort</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Puri, Odisha
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-umbrella-beach"></i> Beach</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('sks','S. K. S Beach Resort — Puri')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
-
-          <!-- Triple Tree, Bhubaneswar -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg"
-                    alt="Triple Tree"
-                  />
-                  <h4>Triple Tree, Bhubaneswar</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Triple Tree, Bhubaneswar"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.0</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Triple Tree</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Bhubaneswar, Odisha
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('tt','Triple Tree — Bhubaneswar')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- North East India -->
-        <div class="row mt-5">
-          <div class="col-12">
-            <h3 class="section-title">🏞️ North East India</h3>
-          </div>
-
-          <!-- AnanTam Retreat, Darjeeling -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg"
-                    alt="AnanTam Retreat"
-                  />
-                  <h4>AnanTam Retreat, Darjeeling</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- Rice Valley, Gangtok -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg"
-                    alt="Rice Valley"
-                  />
-                  <h4>Rice Valley, Gangtok</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- Golden Ice, Pelling -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg"
-                    alt="Golden Ice"
-                  />
-                  <h4>Golden Ice, Pelling</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- Crystal Palace, Guwahati -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg"
-                    alt="Crystal Palace"
-                  />
-                  <h4>Crystal Palace, Guwahati</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- Mon Paradise, Tawang -->
-          <div class="col-md-3 col-sm-6 mb-4">
-            <div class="itinerary_block">
-              <a
-                href="https://vaibhavholidays.com/our-hotels/"
-                class="destination-link"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"
-                    alt="Mon Paradise"
-                  />
-                  <h4>Mon Paradise, Tawang</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec_padding50">
-      <div class="container">
+        <h2 class="region">🏞️ North East India</h2>
         <div class="row">
-          <div class="col-12">
-            <div class="hotel-services">
-              <h3 class="section-title">Hotel Amenities</h3>
-              <div class="services-list">
-                <ul>
-                  <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
-                  <li><i class="fas fa-parking"></i> Free Parking</li>
-                  <li><i class="fas fa-utensils"></i> Restaurant</li>
-                  <li><i class="fas fa-concierge-bell"></i> Room Service</li>
-                  <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
-                  <li><i class="fas fa-tv"></i> TV</li>
-                  <li><i class="fas fa-wheelchair"></i> Accessibility</li>
-                  <li><i class="fas fa-clock"></i> 24/7 Front Desk</li>
-                </ul>
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="AnanTam Retreat, Darjeeling"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.3</span>
+            </div>
+            <div class="body">
+              <h3 class="name">AnanTam Retreat</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Darjeeling, WB
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('ar','AnanTam Retreat — Darjeeling')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Rice Valley, Gangtok"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Rice Valley</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Gangtok, SK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('rv','Rice Valley — Gangtok')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Golden Ice, Pelling"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.1</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Golden Ice</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Pelling, SK
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-snowflake"></i> AC</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('gi','Golden Ice — Pelling')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Crystal Palace, Guwahati"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.0</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Crystal Palace</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Guwahati, AS
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-square-parking"></i> Parking</span
+                ><span class="chip"><i class="fa-solid fa-tv"></i> TV</span>
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('cp','Crystal Palace — Guwahati')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cover">
+              <img
+                src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Mon Paradise, Tawang"
+              /><span class="rating"><i class="fa-solid fa-star"></i> 4.2</span>
+            </div>
+            <div class="body">
+              <h3 class="name">Mon Paradise</h3>
+              <div class="loc">
+                <i class="fa-solid fa-location-dot"></i> Tawang, AR
+              </div>
+              <div class="amen">
+                <span class="chip"><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                ><span class="chip"
+                  ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                >
+              </div>
+              <div class="actions">
+                <a class="btn primary" href="tel:+919874461905"
+                  ><i class="fa-solid fa-phone"></i> Call to Book</a
+                ><button
+                  class="btn ghost"
+                  onclick="openGallery('mp','Mon Paradise — Tawang')"
+                >
+                  <i class="fa-regular fa-images"></i> View Gallery
+                </button>
               </div>
             </div>
           </div>
@@ -1028,34 +1289,165 @@
       </div>
     </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="why">
+      <div class="container">
+        <div class="row">
+          <div class="why-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h5>Trusted Stays</h5>
+            <p>Curated, reliable hotels and partner properties.</p>
+          </div>
+          <div class="why-card">
+            <i class="fa-solid fa-tags"></i>
+            <h5>Best Value</h5>
+            <p>Competitive pricing with seasonal offers.</p>
+          </div>
+          <div class="why-card">
+            <i class="fa-solid fa-headset"></i>
+            <h5>24x7 Support</h5>
+            <p>On-trip assistance for a worry-free stay.</p>
+          </div>
+          <div class="why-card">
+            <i class="fa-solid fa-clipboard-check"></i>
+            <h5>Easy Booking</h5>
+            <p>Quick call-based booking without hassle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Lightbox -->
+    <div
+      id="assoc-lightbox"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Gallery"
+    >
+      <div class="lightbox-content">
+        <div class="lightbox-header">
+          <strong id="lb-title">Gallery</strong>
+          <button
+            class="close-btn"
+            onclick="closeGallery()"
+            aria-label="Close gallery"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="lb-grid" class="lightbox-grid"></div>
+      </div>
+    </div>
 
     <div id="footer-placeholder"></div>
 
     <script src="../js/script.js"></script>
     <script src="../js/layout.js"></script>
-
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Book Now button click handler
-        document.querySelectorAll(".book-now-btn").forEach((btn) => {
-          btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = "tel:+919874461905";
-          });
-        });
+      // Region galleries (Pexels)
+      const G_JK = [
+        "https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2907196/pexels-photo-2907196.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
+      const G_HP = [
+        "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
+      const G_UK = [
+        "https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2598638/pexels-photo-2598638.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
+      const G_UP = [
+        "https://images.pexels.com/photos/2417267/pexels-photo-2417267.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
+      const G_OD = [
+        "https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2467558/pexels-photo-2467558.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
+      const G_NE = [
+        "https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      ];
 
-        // Handle destination links separately from dropdown toggles
-        document.querySelectorAll(".destination-link").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            // Only navigate if the click wasn't on the Book Now button
-            if (e.target.closest(".book-now-btn")) {
-              e.preventDefault();
-            }
-          });
+      const galleries = {
+        // J&K
+        h33: G_JK,
+        hi: G_JK,
+        hga: G_JK,
+        gms: G_JK,
+        rb: G_JK,
+        ap: G_JK,
+        pcr: G_JK,
+        ga: G_JK,
+        // HP
+        swr: G_HP,
+        mg: G_HP,
+        sgm: G_HP,
+        sk: G_HP,
+        hss: G_HP,
+        hkcc: G_HP,
+        chr: G_HP,
+        // UK
+        hs: G_UK,
+        eh: G_UK,
+        dr: G_UK,
+        cvr: G_UK,
+        // UP
+        sgt: G_UP,
+        vp: G_UP,
+        bbp: G_UP,
+        si: G_UP,
+        // Odisha
+        np: G_OD,
+        sks: G_OD,
+        tt: G_OD,
+        // North East
+        ar: G_NE,
+        rv: G_NE,
+        gi: G_NE,
+        cp: G_NE,
+        mp: G_NE,
+      };
+
+      function openGallery(key, title) {
+        const grid = document.getElementById("lb-grid");
+        const lb = document.getElementById("assoc-lightbox");
+        const t = document.getElementById("lb-title");
+        t.textContent = title || "Gallery";
+        grid.innerHTML = "";
+        (galleries[key] || []).forEach((src) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = title || "Gallery image";
+          grid.appendChild(img);
         });
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeGallery() {
+        document.getElementById("assoc-lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("lightbox")) closeGallery();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeGallery();
       });
     </script>
   </body>
