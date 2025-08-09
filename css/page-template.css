@@ -1,0 +1,77 @@
+/* Page Template Styles */
+
+/* Ensure header starts transparent on template pages */
+body #header,
+body #header * {
+  background: transparent !important;
+}
+
+body #header .top-bar {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+body #header.scrolled {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+body #header.scrolled .main-nav {
+  background: transparent !important;
+}
+
+/* Force navbar to be transparent */
+body .navbar {
+  background: transparent !important;
+}
+
+.page-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/Slider images/s1.jpg") center/cover;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.page-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.page-content {
+  padding: 60px 0;
+}
+
+.page-content h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Responsive adjustments for page template */
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 250px;
+    margin-top: 100px;
+  }
+
+  .page-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .page-hero-content p {
+    font-size: 1rem;
+  }
+
+  .page-content h2 {
+    font-size: 2rem;
+  }
+}
