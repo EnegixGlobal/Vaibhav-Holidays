@@ -1,7 +1,7 @@
-const header = document.getElementById("header");
-const hamburger = document.getElementById("hamburger");
-const navOverlay = document.getElementById("nav-overlay");
-const navMenu = document.getElementById("nav-menu");
+let header = document.getElementById("header");
+let hamburger = document.getElementById("hamburger");
+let navOverlay = document.getElementById("nav-overlay");
+let navMenu = document.getElementById("nav-menu");
 const slides = document.querySelectorAll(".slide");
 const indicators = document.querySelectorAll(".indicator");
 const prevBtn = document.getElementById("prevBtn");
@@ -13,12 +13,28 @@ let slideInterval;
 
 document.addEventListener("DOMContentLoaded", function () {
   initializeSlider();
-  initializeNavigation();
-  initializeScrollEffect();
-  initializeDropdowns();
+
+  // Refresh refs after potential layout injection
+  header = document.getElementById("header");
+  hamburger = document.getElementById("hamburger");
+  navOverlay = document.getElementById("nav-overlay");
+  navMenu = document.getElementById("nav-menu");
+
+  // If a layout manager is present, it will wire nav/scroll; avoid double-binding
+  const hasLayoutManager =
+    typeof window !== "undefined" && window.LayoutManager;
+  if (!hasLayoutManager) {
+    if (hamburger && navOverlay) {
+      initializeNavigation();
+    }
+    if (header) {
+      initializeScrollEffect();
+    }
+    initializeDropdowns();
+  }
 
   window.addEventListener("resize", function () {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 768 && navOverlay) {
       navOverlay.classList.remove("active");
       document.body.style.overflow = "";
     }
@@ -27,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initializeScrollEffect() {
   window.addEventListener("scroll", function () {
+    if (!header) return;
     if (window.scrollY > 100) {
       header.classList.add("scrolled");
     } else {
@@ -38,6 +55,7 @@ function initializeScrollEffect() {
 function initializeNavigation() {
   const navCloseBtn = document.getElementById("nav-close-btn");
 
+  if (!hamburger || !navOverlay) return;
   hamburger.addEventListener("click", function () {
     const isActive = navOverlay.classList.toggle("active");
     hamburger.classList.toggle("active");
@@ -46,12 +64,14 @@ function initializeNavigation() {
   });
 
   // Close button functionality
-  navCloseBtn.addEventListener("click", function () {
-    navOverlay.classList.remove("active");
-    hamburger.classList.remove("active");
-    document.body.style.overflow = "";
-    updateAriaAttributes();
-  });
+  if (navCloseBtn) {
+    navCloseBtn.addEventListener("click", function () {
+      navOverlay.classList.remove("active");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "";
+      updateAriaAttributes();
+    });
+  }
 
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", function (e) {
