@@ -105,8 +105,6 @@ function initializeSlider() {
   });
 
   const heroSection = document.querySelector(".hero-section");
-  heroSection.addEventListener("mouseenter", stopAutoSlide);
-  heroSection.addEventListener("mouseleave", startAutoSlide);
 
   let startX = 0;
   let endX = 0;
@@ -159,7 +157,7 @@ function previousSlide() {
 
 function startAutoSlide() {
   stopAutoSlide();
-  slideInterval = setInterval(nextSlide, 5000);
+  slideInterval = setInterval(nextSlide, 3500);
 }
 
 function stopAutoSlide() {
