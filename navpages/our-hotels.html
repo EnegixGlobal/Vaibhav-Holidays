@@ -11,468 +11,393 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --vh-primary: #00c4cc;
+        --vh-primary-dark: #009ba1;
+        --vh-deep: #0f172a;
+        --vh-soft: #f5f8fb;
+        --vh-text: #1a2a44;
+      }
+
       body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 80px 0 20px 0;
-        background: #2c2c2c;
+        padding-top: 0;
+        background: var(--vh-soft);
       }
 
-      .sec_padding50 {
-        padding: 50px 0;
-        background: #2c2c2c;
-        /* margin-top: 20px; */
-      }
-
-      .itinerary_block {
+      /* Hero */
+      .hotels-hero {
         position: relative;
-        border-radius: 8px;
+        min-height: 320px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        text-align: center;
+        background: linear-gradient(
+            rgba(15, 23, 42, 0.55),
+            rgba(15, 23, 42, 0.55)
+          ),
+          url("https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1600")
+            center/cover no-repeat;
+      }
+      .hotels-hero .title {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        margin: 0 0 8px;
+      }
+      .hotels-hero .subtitle {
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      /* Cards */
+      .hotels-section {
+        padding: 50px 0;
+      }
+      .hotels-section .container {
+        max-width: 1120px;
+      }
+      /* Two cards per row on desktop */
+      .hotels-section .row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 992px) {
+        .hotels-section .row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .hotel-card {
+        background: #fff;
+        border-radius: 14px;
         overflow: hidden;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s ease;
+        border: 1px solid #e9eef4;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
         height: 100%;
         display: flex;
         flex-direction: column;
-        background: #fff;
-        border: 1px solid #eaeef3;
       }
-
-      .itinerary_block:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      .hotel-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(16, 24, 40, 0.1);
       }
-
-      .itinerary_block img {
+      .hotel-cover {
+        position: relative;
+      }
+      .hotel-cover img {
         width: 100%;
-        height: 220px;
+        height: 240px;
         object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .itinerary_block:hover img {
-        transform: scale(1.03);
-      }
-
-      .itinerary_block h4 {
-        padding: 15px 20px;
-        margin: 0;
-        color: #1a2a44;
-        font-size: 18px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 1px solid #eaeef3;
-      }
-
-      .book-now-btn {
         display: block;
-        width: calc(100% - 40px);
-        padding: 12px 25px;
-        background: linear-gradient(135deg, #00c4cc 0%, #009ba1 100%);
-        color: #fff !important;
-        text-decoration: none;
-        border-radius: 4px;
-        margin: 15px 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 14px;
-        position: relative;
-        z-index: 2;
-        cursor: pointer;
-        border: none;
       }
-
-      .book-now-btn:hover {
-        background: linear-gradient(135deg, #009ba1 0%, #00c4cc 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 196, 204, 0.2);
-        color: #fff !important;
-      }
-
-      .section-title {
-        color: #ffffff;
-        text-align: center;
-        position: relative;
-        padding-bottom: 20px;
-        margin-bottom: 40px;
-        font-size: 32px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .section-title:after {
+      .hotel-cover:after {
         content: "";
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: linear-gradient(to right, #00c4cc, #009ba1);
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.35),
+          rgba(15, 23, 42, 0)
+        );
+        pointer-events: none;
       }
-
-      .no-underline:after {
-        display: none !important;
+      .rating-badge {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 13px;
       }
-
-      .destination-link {
-        text-decoration: none;
-        color: inherit;
-        flex-grow: 1;
-        display: block;
-      }
-
-      .image-title-wrapper {
+      .hotel-body {
+        padding: 18px;
         display: flex;
         flex-direction: column;
-        height: 100%;
+        gap: 12px;
       }
-
-      .destination-link:hover img {
-        transform: scale(1.03);
-      }
-
-      .hotel-services {
-        background: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .services-list ul {
-        list-style: none;
-        padding: 0;
+      .hotel-title {
         margin: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-      }
-
-      .services-list li {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 16px;
-        color: #1a2a44;
-      }
-
-      .services-list i {
-        color: #00c4cc;
         font-size: 20px;
-        width: 24px;
+        color: var(--vh-text);
+        font-weight: 700;
+      }
+      .hotel-location {
+        color: #6b7a90;
+        font-size: 14px;
+      }
+      .amenities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .amenity {
+        background: #f0fbfb;
+        color: #146c72;
+        border: 1px solid #c7eff0;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .card-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .btn-primary,
+      .btn-ghost {
+        flex: 1;
+        text-align: center;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--vh-primary),
+          var(--vh-primary-dark)
+        );
+        color: #fff;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.05);
+      }
+      .btn-ghost {
+        border: 1px solid #d7e3ec;
+        color: var(--vh-text);
+        background: #fff;
+      }
+      .btn-ghost:hover {
+        background: #f6fafc;
       }
 
-      @media (max-width: 1199px) {
-        .itinerary_block img {
-          height: 200px;
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 24px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox-content {
+        background: #0a1226;
+        border: 1px solid #1b2a44;
+        border-radius: 16px;
+        max-width: 1100px;
+        width: 100%;
+        max-height: 90vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        color: #e2e8f0;
+        background: #0f172a;
+        border-bottom: 1px solid #1e293b;
+      }
+      .lightbox-grid {
+        padding: 12px;
+        background: #0b1325;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        overflow: auto;
+      }
+      .lightbox-grid img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #1e293b;
+      }
+      .close-btn {
+        background: transparent;
+        border: none;
+        color: #cbd5e1;
+        font-size: 22px;
+        cursor: pointer;
+      }
+      .close-btn:hover {
+        color: #ffffff;
+      }
+
+      /* Why us */
+      .why-us {
+        padding: 10px 0 60px;
+      }
+      .why-us .container {
+        max-width: 1120px;
+      }
+      .why-us .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      @media (min-width: 992px) {
+        .why-us .row {
+          grid-template-columns: repeat(4, 1fr);
         }
+      }
+      .why-card {
+        background: #fff;
+        border: 1px solid #e9eef4;
+        border-radius: 14px;
+        padding: 22px;
+        height: 100%;
+        box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+      }
+      .why-card i {
+        color: var(--vh-primary-dark);
+        font-size: 22px;
+      }
+      .why-card h5 {
+        margin: 8px 0 6px;
+        color: var(--vh-text);
+        font-weight: 800;
+      }
+      .why-card p {
+        margin: 0;
+        color: #5b6a80;
+        font-size: 14px;
       }
 
       @media (max-width: 991px) {
-        .itinerary_block img {
-          height: 180px;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .itinerary_block {
-          margin-bottom: 20px;
-        }
-      }
-
-      @media (max-width: 575px) {
-        .itinerary_block img {
+        .hotel-cover img {
           height: 200px;
         }
-
-        .section-title {
-          font-size: 26px;
-          margin-bottom: 30px;
+      }
+      @media (max-width: 767px) {
+        .hotels-hero .title {
+          font-size: 34px;
+        }
+        .lightbox-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
-
-      @media (max-width: 768px) {
-        .services-list ul {
+      @media (max-width: 480px) {
+        .lightbox-grid {
           grid-template-columns: 1fr;
-        }
-      }
-
-      .hotel-gallery {
-        display: none;
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        margin-bottom: 30px;
-        border: 1px solid #e8ecf0;
-      }
-
-      .gallery-header {
-        background: linear-gradient(135deg, #1a2a44 0%, #2c3e50 100%);
-        color: #f8f9fa;
-        padding: 25px 30px;
-        text-align: center;
-        position: relative;
-        border-bottom: 3px solid #00c4cc;
-      }
-
-      .gallery-header h4 {
-        margin: 0;
-        font-size: 22px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #ffffff;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
-
-      .close-gallery {
-        display: none;
-      }
-
-      .gallery-images {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2px;
-        padding: 0;
-      }
-
-      .gallery-image-wrapper {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 16/10;
-      }
-
-      .gallery-images img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.4s ease;
-        filter: brightness(0.95);
-      }
-
-      .gallery-images img:hover {
-        transform: scale(1.08);
-        filter: brightness(1.1);
-      }
-
-      .gallery-image-wrapper::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          45deg,
-          rgba(0, 196, 204, 0.1) 0%,
-          rgba(0, 155, 161, 0.1) 100%
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 1;
-      }
-
-      .gallery-image-wrapper:hover::before {
-        opacity: 1;
-      }
-
-      .back-to-hotels {
-        background: linear-gradient(135deg, #00c4cc 0%, #009ba1 100%);
-        color: white;
-        border: none;
-        padding: 15px 30px;
-        margin: 20px;
-        border-radius: 8px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 14px;
-      }
-
-      .back-to-hotels:hover {
-        background: linear-gradient(135deg, #009ba1 0%, #00c4cc 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 196, 204, 0.3);
-      }
-
-      @media (max-width: 768px) {
-        .gallery-images {
-          grid-template-columns: 1fr;
-          gap: 1px;
-        }
-
-        .gallery-header {
-          padding: 20px;
-        }
-
-        .gallery-header h4 {
-          font-size: 18px;
-        }
-
-        .close-gallery {
-          width: 35px;
-          height: 35px;
-          right: 20px;
         }
       }
     </style>
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <section class="sec_padding50">
+
+    <!-- Hero -->
+    <section class="hotels-hero">
       <div class="container">
-        <!-- Main Header -->
-        <div class="row">
-          <div class="col-12">
-            <h2
-              class="section-title no-underline"
-              style="font-size: 40px; margin-bottom: 90px"
-            ></h2>
-          </div>
+        <h1 class="title">Our Hotels</h1>
+        <div class="subtitle">
+          Handpicked stays with comfort, convenience, and value
         </div>
+      </div>
+    </section>
 
-        <!-- Our Own Hotels -->
+    <!-- Hotels -->
+    <section class="hotels-section">
+      <div class="container">
         <div class="row">
-          <div class="col-12">
-            <h3 class="section-title">Our Own Hotels</h3>
-          </div>
-
-          <!-- Royal Comfort Inn, Chandigarh -->
-          <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-            <div class="itinerary_block" id="royal-comfort-card">
-              <a
-                href="javascript:void(0);"
-                class="destination-link"
-                onclick="showGallery('royal-comfort')"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg"
-                    alt="Royal Comfort Inn"
-                  />
-                  <h4>Royal Comfort Inn, Chandigarh</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- MUMUXU BHAWAN -->
-          <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-            <div class="itinerary_block" id="mumuxu-card">
-              <a
-                href="javascript:void(0);"
-                class="destination-link"
-                onclick="showGallery('mumuxu')"
-              >
-                <div class="image-title-wrapper">
-                  <img
-                    src="https://res.cloudinary.com/traveltripperweb/image/upload/c_fit,f_auto,h_768,q_auto,w_768/v1648483614/an2etgcicyy0vszlfppf.jpg"
-                    alt="MUMUXU BHAWAN"
-                  />
-                  <h4>MUMUXU BHAWAN</h4>
-                </div>
-              </a>
-              <a
-                href="tel:+919874461905"
-                class="book-now-btn"
-                onclick="event.stopPropagation(); return true;"
-                >Book Now</a
-              >
-            </div>
-          </div>
-
-          <!-- Royal Comfort Inn Gallery -->
-          <div class="col-12 mb-4">
-            <div class="hotel-gallery" id="royal-comfort-gallery">
-              <div class="gallery-header">
-                <h4>Royal Comfort Inn, Chandigarh</h4>
-              </div>
-              <div class="gallery-images">
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://vaibhavholidays.com/wp-content/uploads/2025/07/1-1.jpg"
-                    alt="Royal Comfort Inn - Exterior View"
-                  />
-                </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://vaibhavholidays.com/wp-content/uploads/2025/07/2-1.jpg"
-                    alt="Royal Comfort Inn - Interior"
-                  />
-                </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://vaibhavholidays.com/wp-content/uploads/2025/07/4-1.jpg"
-                    alt="Royal Comfort Inn - Room"
-                  />
-                </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://vaibhavholidays.com/wp-content/uploads/2025/07/3-1.jpg"
-                    alt="Royal Comfort Inn - Facilities"
-                  />
-                </div>
-              </div>
-              <div style="text-align: center">
-                <button
-                  class="back-to-hotels"
-                  onclick="closeGallery('royal-comfort')"
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="hotel-card">
+              <div class="hotel-cover">
+                <img
+                  src="https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                  alt="Royal Comfort Inn exterior"
+                />
+                <span class="rating-badge"
+                  ><i class="fas fa-star"></i> 4.6</span
                 >
-                  ← Back to Hotels
-                </button>
+              </div>
+              <div class="hotel-body">
+                <h3 class="hotel-title">Royal Comfort Inn</h3>
+                <div class="hotel-location">
+                  <i class="fa-solid fa-location-dot"></i> Chandigarh, India
+                </div>
+                <div class="amenities">
+                  <span class="amenity"
+                    ><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                  >
+                  <span class="amenity"
+                    ><i class="fa-solid fa-snowflake"></i> AC</span
+                  >
+                  <span class="amenity"
+                    ><i class="fa-solid fa-mug-hot"></i> Breakfast</span
+                  >
+                  <span class="amenity"
+                    ><i class="fa-solid fa-square-parking"></i> Parking</span
+                  >
+                </div>
+                <div class="card-actions">
+                  <a class="btn-primary" href="tel:+919874461905"
+                    ><i class="fa-solid fa-phone"></i> Call to Book</a
+                  >
+                  <button class="btn-ghost" onclick="openGallery('rc')">
+                    <i class="fa-regular fa-images"></i> View Gallery
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- MUMUXU BHAWAN Gallery -->
-          <div class="col-12 mb-4">
-            <div class="hotel-gallery" id="mumuxu-gallery">
-              <div class="gallery-header">
-                <h4>MUMUXU BHAWAN</h4>
+          <div class="col-lg-6 col-md-6 mb-4">
+            <div class="hotel-card">
+              <div class="hotel-cover">
+                <img
+                  src="https://res.cloudinary.com/traveltripperweb/image/upload/c_fit,f_auto,h_768,q_auto,w_768/v1648483614/an2etgcicyy0vszlfppf.jpg"
+                  alt="MUMUXU Bhawan exterior"
+                />
+                <span class="rating-badge"
+                  ><i class="fas fa-star"></i> 4.5</span
+                >
               </div>
-              <div class="gallery-images">
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg"
-                    alt="MUMUXU BHAWAN - Luxury Suite"
-                  />
+              <div class="hotel-body">
+                <h3 class="hotel-title">MUMUXU BHAWAN</h3>
+                <div class="hotel-location">
+                  <i class="fa-solid fa-location-dot"></i> Prime City Location
                 </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
-                    alt="MUMUXU BHAWAN - Reception Area"
-                  />
+                <div class="amenities">
+                  <span class="amenity"
+                    ><i class="fa-solid fa-wifi"></i> Wi‑Fi</span
+                  >
+                  <span class="amenity"
+                    ><i class="fa-solid fa-utensils"></i> Restaurant</span
+                  >
+                  <span class="amenity"><i class="fa-solid fa-tv"></i> TV</span>
+                  <span class="amenity"
+                    ><i class="fa-solid fa-concierge-bell"></i> Service</span
+                  >
                 </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg"
-                    alt="MUMUXU BHAWAN - Dining Area"
-                  />
+                <div class="card-actions">
+                  <a class="btn-primary" href="tel:+919874461905"
+                    ><i class="fa-solid fa-phone"></i> Call to Book</a
+                  >
+                  <button class="btn-ghost" onclick="openGallery('mb')">
+                    <i class="fa-regular fa-images"></i> View Gallery
+                  </button>
                 </div>
-                <div class="gallery-image-wrapper">
-                  <img
-                    src="https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg"
-                    alt="MUMUXU BHAWAN - Premium Room"
-                  />
-                </div>
-              </div>
-              <div style="text-align: center">
-                <button class="back-to-hotels" onclick="closeGallery('mumuxu')">
-                  ← Back to Hotels
-                </button>
               </div>
             </div>
           </div>
@@ -480,109 +405,161 @@
       </div>
     </section>
 
-    <section class="sec_padding50">
+    <!-- Why book with us -->
+    <section class="why-us">
       <div class="container">
         <div class="row">
-          <div class="col-12">
-            <div class="hotel-services">
-              <h3 class="section-title">Hotel Amenities</h3>
-              <div class="services-list">
-                <ul>
-                  <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
-                  <li><i class="fas fa-parking"></i> Free Parking</li>
-                  <li><i class="fas fa-utensils"></i> Restaurant</li>
-                  <li><i class="fas fa-concierge-bell"></i> Room Service</li>
-                  <li><i class="fas fa-snowflake"></i> Air Conditioning</li>
-                  <li><i class="fas fa-tv"></i> TV</li>
-                  <li><i class="fas fa-wheelchair"></i> Accessibility</li>
-                  <li><i class="fas fa-clock"></i> 24/7 Front Desk</li>
-                </ul>
-              </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="why-card text-center">
+              <i class="fa-solid fa-shield-halved"></i>
+              <h5>Trusted Stays</h5>
+              <p>Curated, reliable hotels and partner properties.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="why-card text-center">
+              <i class="fa-solid fa-tags"></i>
+              <h5>Best Value</h5>
+              <p>Competitive pricing with seasonal offers.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="why-card text-center">
+              <i class="fa-solid fa-headset"></i>
+              <h5>24x7 Support</h5>
+              <p>On-trip assistance for a worry-free stay.</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-6 mb-4">
+            <div class="why-card text-center">
+              <i class="fa-solid fa-clipboard-check"></i>
+              <h5>Easy Booking</h5>
+              <p>Quick call-based booking without hassle.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lightboxes -->
+    <div
+      id="lightbox-rc"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Royal Comfort Inn Gallery"
+    >
+      <div class="lightbox-content">
+        <div class="lightbox-header">
+          <strong>Royal Comfort Inn — Gallery</strong>
+          <button
+            class="close-btn"
+            onclick="closeGallery()"
+            aria-label="Close gallery"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="lightbox-grid">
+          <img
+            src="https://vaibhavholidays.com/wp-content/uploads/2025/07/1-1.jpg"
+            alt="Royal Comfort Inn photo 1"
+          />
+          <img
+            src="https://vaibhavholidays.com/wp-content/uploads/2025/07/2-1.jpg"
+            alt="Royal Comfort Inn photo 2"
+          />
+          <img
+            src="https://vaibhavholidays.com/wp-content/uploads/2025/07/4-1.jpg"
+            alt="Royal Comfort Inn photo 3"
+          />
+          <img
+            src="https://vaibhavholidays.com/wp-content/uploads/2025/07/3-1.jpg"
+            alt="Royal Comfort Inn photo 4"
+          />
+          <img
+            src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Royal Comfort Inn photo 5"
+          />
+          <img
+            src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Royal Comfort Inn photo 6"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="lightbox-mb"
+      class="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="MUMUXU Bhawan Gallery"
+    >
+      <div class="lightbox-content">
+        <div class="lightbox-header">
+          <strong>MUMUXU BHAWAN — Gallery</strong>
+          <button
+            class="close-btn"
+            onclick="closeGallery()"
+            aria-label="Close gallery"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="lightbox-grid">
+          <img
+            src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 1"
+          />
+          <img
+            src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 2"
+          />
+          <img
+            src="https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 3"
+          />
+          <img
+            src="https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 4"
+          />
+          <img
+            src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 5"
+          />
+          <img
+            src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="MUMUXU photo 6"
+          />
+        </div>
+      </div>
+    </div>
 
     <div id="footer-placeholder"></div>
 
     <script src="../js/script.js"></script>
     <script src="../js/layout.js"></script>
-
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Book Now button click handler
-        document.querySelectorAll(".book-now-btn").forEach((btn) => {
-          btn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = "tel:+919874461905";
-          });
-        });
-
-        // Handle destination links separately from dropdown toggles
-        document.querySelectorAll(".destination-link").forEach((link) => {
-          link.addEventListener("click", function (e) {
-            // Only navigate if the click wasn't on the Book Now button
-            if (e.target.closest(".book-now-btn")) {
-              e.preventDefault();
-            }
-          });
-        });
+      function openGallery(which) {
+        const id = which === "rc" ? "lightbox-rc" : "lightbox-mb";
+        document.getElementById(id).classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeGallery() {
+        document
+          .querySelectorAll(".lightbox")
+          .forEach((lb) => lb.classList.remove("open"));
+        document.body.style.overflow = "";
+      }
+      // Close on backdrop click or ESC
+      document.addEventListener("click", (e) => {
+        const lb = e.target.closest(".lightbox-content");
+        if (e.target.classList.contains("lightbox")) closeGallery();
       });
-
-      function showGallery(hotelName) {
-        // Hide both hotel cards
-        document.getElementById("royal-comfort-card").style.display = "none";
-        document.getElementById("mumuxu-card").style.display = "none";
-
-        // Hide both galleries first
-        document.getElementById("royal-comfort-gallery").style.display = "none";
-        document.getElementById("mumuxu-gallery").style.display = "none";
-
-        // Get the gallery element and the parent row
-        const gallery = document.getElementById(hotelName + "-gallery");
-        const parentRow = gallery.closest(".row");
-        const titleElement =
-          parentRow.querySelector(".section-title").parentElement;
-
-        // Move the gallery right after the title
-        titleElement.insertAdjacentElement("afterend", gallery.parentElement);
-
-        // Show the clicked gallery
-        gallery.style.display = "block";
-
-        // Show the other hotel card at the bottom by moving it after the gallery
-        if (hotelName === "royal-comfort") {
-          const otherCardContainer =
-            document.getElementById("mumuxu-card").parentElement;
-          gallery.parentElement.insertAdjacentElement(
-            "afterend",
-            otherCardContainer
-          );
-          // Change to full width when alone
-          otherCardContainer.className = "col-12 mb-4";
-          document.getElementById("mumuxu-card").style.display = "block";
-        } else {
-          const otherCardContainer =
-            document.getElementById("royal-comfort-card").parentElement;
-          gallery.parentElement.insertAdjacentElement(
-            "afterend",
-            otherCardContainer
-          );
-          // Change to full width when alone
-          otherCardContainer.className = "col-12 mb-4";
-          document.getElementById("royal-comfort-card").style.display = "block";
-        }
-      }
-
-      function closeGallery(hotelName) {
-        // Simply refresh the page to restore original state
-        location.reload();
-      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeGallery();
+      });
     </script>
   </body>
 </html>
