@@ -23,20 +23,46 @@ class LayoutManager {
       this.loadComponent("footer-placeholder", "includes/footer.html"),
     ]);
 
-    // Initialize navigation functionality after header is loaded
-    this.initNavigation();
+    // Wait a bit for DOM to be ready, then initialize navigation
+    setTimeout(() => {
+      this.initNavigation();
+    }, 100);
   }
 
   static initNavigation() {
+    console.log('Initializing navigation...');
+    
     // Mobile menu toggle - using hamburger button like in main page
     const hamburger = document.getElementById("hamburger");
     const navOverlay = document.getElementById("nav-overlay");
     const navCloseBtn = document.getElementById("nav-close-btn");
 
-    if (hamburger && navOverlay) {
+    // Force hamburger visibility on mobile using CSS class
+    const updateHamburgerVisibility = () => {
+      if (hamburger) {
+        const isMobile = window.innerWidth <= 991;
+        if (isMobile) {
+          hamburger.style.display = 'flex';
+          hamburger.style.flexDirection = 'column';
+          hamburger.style.justifyContent = 'center';
+          hamburger.style.alignItems = 'center';
+        } else {
+          hamburger.style.display = 'none';
+        }
+        console.log('Mobile check:', isMobile, 'Hamburger display:', hamburger.style.display);
+      }
+    };
+    
+    // Initial setup
+    updateHamburgerVisibility();
+    
+    if (hamburger) {
       hamburger.addEventListener("click", () => {
-        navOverlay.classList.add("active");
-        document.body.style.overflow = "hidden";
+        console.log('Hamburger clicked');
+        if (navOverlay) {
+          navOverlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
       });
     }
 
@@ -56,6 +82,9 @@ class LayoutManager {
         }
       });
     }
+
+    // Handle window resize to show/hide hamburger
+    window.addEventListener("resize", updateHamburgerVisibility);
 
     // Dropdown functionality
     const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
