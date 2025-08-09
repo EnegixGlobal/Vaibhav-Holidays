@@ -627,6 +627,8 @@ body {
 .google-logo {
   width: 25px;
   height: 25px;
+  object-fit: contain;
+  display: block;
 }
 
 .stars {
@@ -666,6 +668,20 @@ body {
 
 .footer-copyright a:hover {
   text-decoration: underline;
+}
+
+.google-reviews-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.google-reviews-link:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
 }
 
 @keyframes fadeInUp {
