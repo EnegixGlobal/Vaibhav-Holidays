@@ -921,30 +921,30 @@ body {
 
 /* Services Section */
 .services-section {
-  padding: 50px 0;
+  padding: 30px 0;
   background: #fff;
 }
 
 .services-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #666;
   font-weight: 600;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .service-item {
   text-align: center;
-  padding: 30px 20px;
+  padding: 20px 15px;
   transition: transform 0.3s ease;
 }
 
@@ -953,19 +953,19 @@ body {
 }
 
 .service-icon {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background: #ff6b35;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px;
   transition: all 0.3s ease;
 }
 
 .service-icon i {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #fff;
 }
 
@@ -975,16 +975,16 @@ body {
 }
 
 .service-item h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #2c3e50;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .service-item p {
   color: #666;
-  line-height: 1.5;
-  font-size: 0.95rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
 }
 
 #footer {
