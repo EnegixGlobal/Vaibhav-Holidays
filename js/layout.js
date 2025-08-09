@@ -25,7 +25,7 @@ class LayoutManager {
     // Determine context
     const path = window.location.pathname || "";
     const isHomepage = /(?:^|\/)index\.html$/.test(path) || /\/$/.test(path);
-    const inSubdir = /\/(?:iti)\//.test(path);
+    const inSubdir = /\/(?:iti|navpages)\//.test(path);
 
     // Helper to prefix paths correctly from subdirectories
     const prefix = inSubdir ? "../" : "";
@@ -81,7 +81,7 @@ class LayoutManager {
   static async init() {
     // Compute include paths relative to current location
     const path = window.location.pathname || "";
-    const inSubdir = /\/(?:iti)\//.test(path);
+    const inSubdir = /\/(?:iti|navpages)\//.test(path);
     const prefix = inSubdir ? "../" : "";
 
     // Ensure core site CSS is present (for header/footer styling)
