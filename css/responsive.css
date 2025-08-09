@@ -41,6 +41,44 @@
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+
+  .experience-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .experience-content {
+    gap: 20px;
+  }
+
+  .experience-header {
+    flex: 0 0 280px;
+    padding: 25px 20px;
+  }
+
+  .experience-features {
+    gap: 20px;
+  }
+
+  .feature-box {
+    padding: 20px 15px;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feature-icon i {
+    font-size: 1.3rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-content p {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -220,6 +258,51 @@
     gap: 10px;
     text-align: center;
   }
+
+  .experience-section {
+    padding: 30px 0;
+  }
+
+  .experience-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .experience-header {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .experience-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .experience-features {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feature-box {
+    padding: 20px 15px;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .feature-icon i {
+    font-size: 1.3rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-content p {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -330,78 +413,117 @@
     font-size: 13px;
     padding: 10px;
   }
+
+  .experience-section {
+    padding: 20px 0;
+  }
+
+  .experience-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .experience-header {
+    padding: 15px;
+  }
+
+  .experience-features {
+    gap: 10px;
+  }
+
+  .feature-box {
+    padding: 15px 10px;
+  }
+
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+  }
+
+  .feature-icon i {
+    font-size: 1.2rem;
+  }
+
+  .feature-content h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .feature-content p {
+    font-size: 0.8rem;
+  }
 }
 
-  .hamburger span {
-    width: 22px;
-    height: 3px;
-  }
+.hamburger span {
+  width: 22px;
+  height: 3px;
+}
 
-  .nav-overlay {
-    padding: 40px 15px 15px;
-  }
+.nav-overlay {
+  padding: 40px 15px 15px;
+}
 
-  .nav-link {
-    font-size: 18px;
-    padding: 12px;
-  }
+.nav-link {
+  font-size: 18px;
+  padding: 12px;
+}
 
-  .hero-title {
-    font-size: 1.5rem;
-  }
+.hero-title {
+  font-size: 1.5rem;
+}
 
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
+.hero-subtitle {
+  font-size: 0.9rem;
+}
 
-  .cta-button {
-    padding: 10px 25px;
-    font-size: 14px;
-  }
+.cta-button {
+  padding: 10px 25px;
+  font-size: 14px;
+}
 
-  .slider-indicators {
-    bottom: 20px;
-  }
+.slider-indicators {
+  bottom: 20px;
+}
 
-  .indicator {
-    width: 10px;
-    height: 10px;
-  }
+.indicator {
+  width: 10px;
+  height: 10px;
+}
 
-  .slider-nav {
-    padding: 0 15px;
-  }
+.slider-nav {
+  padding: 0 15px;
+}
 
-  .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
+.slider-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+}
 
-  .dropdown-section h4 {
-    font-size: 14px;
-  }
+.dropdown-section h4 {
+  font-size: 14px;
+}
 
-  .dropdown-section ul li a {
-    font-size: 13px;
-    padding: 6px 8px;
-  }
+.dropdown-section ul li a {
+  font-size: 13px;
+  padding: 6px 8px;
+}
 
-  #footer {
-    padding: 30px 0 15px;
-  }
+#footer {
+  padding: 30px 0 15px;
+}
 
-  .footer-section h3 {
-    font-size: 18px;
-  }
+.footer-section h3 {
+  font-size: 18px;
+}
 
-  .environmental-message {
-    padding: 10px;
-  }
+.environmental-message {
+  padding: 10px;
+}
 
-  .environmental-message p {
-    font-size: 14px;
-  }
+.environmental-message p {
+  font-size: 14px;
+}
 
 @media (max-width: 768px) and (orientation: landscape) {
   .hero-section {
