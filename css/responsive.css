@@ -381,13 +381,15 @@
   }
 
   .gallery-section {
-    min-height: 400px;
+    min-height: 500px;
+    padding: 30px 0;
   }
 
   .gallery-content {
     flex-direction: column;
-    gap: 30px;
+    gap: 40px;
     text-align: center;
+    padding: 20px;
   }
 
   .gallery-left {
@@ -658,7 +660,8 @@
   }
 
   .gallery-section {
-    min-height: 300px;
+    min-height: 450px;
+    padding: 40px 0;
   }
 
   .gallery-title {
@@ -671,8 +674,9 @@
   }
 
   .gallery-grid {
-    gap: 8px;
+    gap: 10px;
     max-width: 300px;
+    margin-bottom: 20px;
   }
 
   /* Hide magnifying glass overlay on mobile */
