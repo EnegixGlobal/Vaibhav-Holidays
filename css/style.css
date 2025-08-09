@@ -65,6 +65,7 @@ body {
 .top-bar .social-link {
   color: #fff;
   font-size: 16px;
+  text-decoration: none;
   transition: all 0.3s ease;
   width: 30px;
   height: 30px;
@@ -605,6 +606,7 @@ body {
   justify-content: center;
   color: #fff;
   font-size: 18px;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
