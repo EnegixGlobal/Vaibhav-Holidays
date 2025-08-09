@@ -307,7 +307,9 @@ updateAriaAttributes();
 
 // Gallery Lightbox Functionality
 let currentGalleryIndex = 0;
-const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryItems = document.querySelectorAll(
+  ".gallery-item, .itinerary-item"
+);
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const lightboxTitle = document.getElementById("lightbox-title");

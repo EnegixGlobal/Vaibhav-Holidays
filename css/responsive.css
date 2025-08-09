@@ -407,20 +407,48 @@
   }
 
   .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: inline-block;
-    margin-top: 20px;
-  }
-
-  /* Hide magnifying glass overlay on mobile */
-  .gallery-overlay {
     display: none !important;
   }
 
-  .gallery-item {
+  .mobile-only {
+    display: inline-block !important;
+    margin-top: 20px;
+  }
+
+  .itinerary-section {
+    min-height: 500px;
+    padding: 30px 0;
+  }
+
+  .itinerary-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .itinerary-left {
+    flex: none;
+  }
+
+  .itinerary-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .itinerary-grid {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* Hide magnifying glass overlay on mobile */
+  .gallery-overlay,
+  .itinerary-overlay {
+    display: none !important;
+  }
+
+  .gallery-item,
+  .itinerary-item {
     cursor: default !important;
   }
 
@@ -696,20 +724,49 @@
   }
 
   .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: inline-block;
-    margin-top: 15px;
-  }
-
-  /* Hide magnifying glass overlay on mobile */
-  .gallery-overlay {
     display: none !important;
   }
 
-  .gallery-item {
+  .mobile-only {
+    display: inline-block !important;
+    margin-top: 15px;
+  }
+
+  .itinerary-section {
+    min-height: 450px;
+    padding: 40px 0;
+  }
+
+  .itinerary-content {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .itinerary-title {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .itinerary-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .itinerary-grid {
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* Hide magnifying glass overlay on mobile */
+  .gallery-overlay,
+  .itinerary-overlay {
+    display: none !important;
+  }
+
+  .gallery-item,
+  .itinerary-item {
     cursor: default !important;
   }
 
