@@ -22,31 +22,114 @@ class LayoutManager {
   }
 
   static fixNavigationLinks() {
-    // Check if we're on the homepage
-    const isHomepage =
-      window.location.pathname.includes("index.html") ||
-      window.location.pathname === "/" ||
-      window.location.pathname.endsWith("/");
+    // Determine context
+    const path = window.location.pathname || "";
+    const isHomepage = /(?:^|\/)index\.html$/.test(path) || /\/$/.test(path);
+    const inSubdir = /\/(?:iti)\//.test(path);
 
-    // Update About Us links based on current page
-    const aboutLinks = document.querySelectorAll('a[href="about.html"]');
-    aboutLinks.forEach((link) => {
-      if (isHomepage) {
-        // On homepage, link to about section
-        link.href = "#about";
-      } else {
-        // On other pages, link to about.html
-        link.href = "about.html";
+    // Helper to prefix paths correctly from subdirectories
+    const prefix = inSubdir ? "../" : "";
+
+    // 1) Convert in-page anchors to index anchors when not on homepage
+    const anchorTargets = [
+      "about",
+      "gallery",
+      "tariff",
+      "contact",
+      "home",
+      "itinerary",
+    ];
+    anchorTargets.forEach((id) => {
+      const selector = `a[href="#${id}"]`;
+      document.querySelectorAll(selector).forEach((a) => {
+        if (!isHomepage) {
+          a.setAttribute("href", `${prefix}index.html#${id}`);
+        }
+      });
+    });
+
+    // 2) Handle any legacy About Us links that point to about.html -> map appropriately
+    document.querySelectorAll('a[href="about.html"]').forEach((a) => {
+      a.setAttribute(
+        "href",
+        isHomepage ? "#about" : `${prefix}index.html#about`
+      );
+    });
+
+    // 3) Wire itinerary links declared via data-nav-href
+    document.querySelectorAll("a[data-nav-href]").forEach((a) => {
+      const target = a.getAttribute("data-nav-href");
+      if (target) {
+        a.setAttribute("href", `${prefix}${target}`);
       }
     });
+
+    // 4) Fix image src paths inside header/footer when on subpages
+    if (inSubdir) {
+      const container = document;
+      container
+        .querySelectorAll("#header-placeholder img, #footer-placeholder img")
+        .forEach((img) => {
+          const src = img.getAttribute("src") || "";
+          if (src.startsWith("images/")) {
+            img.setAttribute("src", `${prefix}${src}`);
+          }
+        });
+    }
   }
 
   static async init() {
+    // Compute include paths relative to current location
+    const path = window.location.pathname || "";
+    const inSubdir = /\/(?:iti)\//.test(path);
+    const prefix = inSubdir ? "../" : "";
+
+    // Ensure core site CSS is present (for header/footer styling)
+    const addStylesheet = (id, href, isAbsolute = false) => {
+      if (document.getElementById(id)) return;
+      const link = document.createElement("link");
+      link.id = id;
+      link.rel = "stylesheet";
+      link.href = isAbsolute ? href : `${prefix}${href}`;
+      document.head.appendChild(link);
+    };
+
+    // Local site styles for header/footer
+    addStylesheet("vh-style", "css/style.css");
+    addStylesheet("vh-responsive", "css/responsive.css");
+
+    // Helpful: icons + fonts used by header/footer (only if not already present)
+    addStylesheet(
+      "vh-fa",
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css",
+      true
+    );
+    addStylesheet(
+      "vh-fonts",
+      "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
+      true
+    );
+
+    // Ensure placeholders exist
+    if (!document.getElementById("header-placeholder")) {
+      const headerDiv = document.createElement("div");
+      headerDiv.id = "header-placeholder";
+      document.body.insertBefore(headerDiv, document.body.firstChild);
+    }
+    if (!document.getElementById("footer-placeholder")) {
+      const footerDiv = document.createElement("div");
+      footerDiv.id = "footer-placeholder";
+      document.body.appendChild(footerDiv);
+    }
+
     // Load header and footer
     await Promise.all([
-      this.loadComponent("header-placeholder", "includes/header.html"),
-      this.loadComponent("footer-placeholder", "includes/footer.html"),
+      this.loadComponent("header-placeholder", `${prefix}includes/header.html`),
+      this.loadComponent("footer-placeholder", `${prefix}includes/footer.html`),
     ]);
+
+    // Ensure links and asset paths are corrected after both components are present
+    this.fixNavigationLinks();
 
     // Wait a bit for DOM to be ready, then initialize navigation
     setTimeout(() => {
@@ -189,6 +272,11 @@ class LayoutManager {
       });
     });
   }
+}
+
+// Expose for coordination with other scripts
+if (typeof window !== "undefined") {
+  window.LayoutManager = LayoutManager;
 }
 
 // Initialize layout when DOM is loaded
