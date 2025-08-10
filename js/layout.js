@@ -150,7 +150,12 @@ class LayoutManager {
       if (hamburger) {
         const isMobile = window.innerWidth <= 991;
         if (isMobile) {
-          hamburger.style.display = "flex";
+          // If menu is open, keep hamburger hidden; else show
+          if (document.body.classList.contains("menu-open")) {
+            hamburger.style.display = "none";
+          } else {
+            hamburger.style.display = "flex";
+          }
           hamburger.style.flexDirection = "column";
           hamburger.style.justifyContent = "center";
           hamburger.style.alignItems = "center";
@@ -175,6 +180,12 @@ class LayoutManager {
         if (navOverlay) {
           navOverlay.classList.add("active");
           document.body.style.overflow = "hidden";
+          // Mark hamburger active so CSS can hide/swap it when menu is open
+          hamburger.classList.add("active");
+          // Add body state for CSS-based control
+          document.body.classList.add("menu-open");
+          // Hide hamburger immediately to avoid visual overlap
+          hamburger.style.display = "none";
         }
       });
     }
@@ -183,6 +194,10 @@ class LayoutManager {
       navCloseBtn.addEventListener("click", () => {
         navOverlay.classList.remove("active");
         document.body.style.overflow = "";
+        if (hamburger) hamburger.classList.remove("active");
+        document.body.classList.remove("menu-open");
+        // Restore hamburger visibility based on viewport
+        updateHamburgerVisibility();
       });
     }
 
@@ -192,6 +207,9 @@ class LayoutManager {
         if (e.target === navOverlay) {
           navOverlay.classList.remove("active");
           document.body.style.overflow = "";
+          if (hamburger) hamburger.classList.remove("active");
+          document.body.classList.remove("menu-open");
+          updateHamburgerVisibility();
         }
       });
     }
@@ -205,6 +223,9 @@ class LayoutManager {
           if (navOverlay) {
             navOverlay.classList.remove("active");
             document.body.style.overflow = "";
+            if (hamburger) hamburger.classList.remove("active");
+            document.body.classList.remove("menu-open");
+            updateHamburgerVisibility();
           }
         }
       });

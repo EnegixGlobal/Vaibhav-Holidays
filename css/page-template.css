@@ -85,8 +85,9 @@ body .navbar {
 
 .nav-close-btn {
   position: absolute;
-  top: -50px;
-  right: 0;
+  /* move inside the overlay instead of sitting above it */
+  top: 10px;
+  right: 10px;
   background: none;
   border: none;
   color: white;
@@ -115,48 +116,7 @@ header.scrolled {
   background: rgba(0, 0, 0, 0.95) !important;
 }
 
-/* EMERGENCY HAMBURGER VISIBILITY - VERY AGGRESSIVE STYLES */
-body .hamburger,
-#hamburger,
-.hamburger {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: fixed !important;
-  top: 60px !important;
-  right: 15px !important;
-  z-index: 999999 !important;
-  width: 45px !important;
-  height: 45px !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 8px !important;
-  cursor: pointer !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 4px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  box-shadow: none !important;
-}
-
-body .hamburger span,
-#hamburger span,
-.hamburger span {
-  display: block !important;
-  width: 24px !important;
-  height: 4px !important;
-  background: #fff !important;
-  border-radius: 2px !important;
-  transition: none !important;
-  transform: none !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  position: relative !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+/* Removed emergency hamburger overrides to match base mobile behavior */
 
 .hamburger:focus {
   outline: 2px solid #ff6b35;
@@ -257,7 +217,11 @@ body .hamburger span,
   font-weight: 600;
   border-bottom: 3px solid #ff6b35;
   padding-bottom: 10px;
-  display: inline-block;
+  /* center the title and its underline without affecting paragraph alignment */
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .about-section p {
@@ -270,6 +234,17 @@ body .hamburger span,
 /* Services Grid */
 .services-section {
   margin: 60px 0;
+}
+
+/* Center titles for specific About page sections */
+.services-section > h3,
+.value-added-section > h3 {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-bottom: 3px solid #ff6b35;
+  padding-bottom: 10px;
 }
 
 .services-grid {
@@ -445,6 +420,8 @@ body .hamburger span,
 @media (max-width: 768px) {
   .page-hero {
     min-height: 250px;
+    /* add a little breathing room below the fixed header */
+    padding-top: 40px;
   }
 
   .page-hero-content h1 {
@@ -585,5 +562,67 @@ body .hamburger span,
   .value-service-item i {
     margin-right: 0;
     margin-bottom: 10px;
+  }
+}
+
+/* --- About page mobile nav fixes: align with base styles (like gallery) --- */
+/* Hide overlay by default; only show when .active is present */
+.nav-overlay {
+  display: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  /* ensure overlay is above the high z-index header on template pages */
+  z-index: 100005 !important;
+}
+
+.nav-overlay.active {
+  display: flex !important;
+}
+
+/* Ensure close button sits inside overlay and not visible when overlay is hidden */
+#nav-close-btn.nav-close-btn {
+  /* give extra breathing room so it doesn't overlap header/social icons */
+  top: 60px !important;
+  right: 20px !important;
+}
+
+/* Reset emergency hamburger overrides: follow base responsive behavior */
+body .hamburger,
+#hamburger,
+.hamburger {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 1001 !important; /* keep below overlay (1002) */
+}
+
+/* When menu is open (script toggles .active on hamburger), hide the hamburger */
+body.menu-open .hamburger {
+  display: none !important;
+}
+
+/* Also hide when script.js toggles .active on the hamburger */
+.hamburger.active {
+  display: none !important;
+}
+
+/* ID-specific overrides to beat earlier #hamburger !important visibility */
+body.menu-open #hamburger {
+  display: none !important;
+}
+
+#hamburger.active {
+  display: none !important;
+}
+
+@media (min-width: 992px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .hamburger {
+    display: flex !important;
   }
 }
