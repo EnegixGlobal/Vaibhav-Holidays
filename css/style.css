@@ -1003,11 +1003,13 @@ body {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  min-height: 260px; /* ensure space reserved when items absolutely positioned */
 }
 
 .testimonial-track {
-  display: flex;
+  display: flex; /* initial layout before JS enhancement */
   transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .testimonial-item {
@@ -1018,6 +1020,17 @@ body {
 
 .testimonial-item.active {
   opacity: 1;
+}
+
+/* Testimonial slider fix: layer items instead of shifting oversized track */
+.testimonial-track {
+  position: relative;
+  display: flex;
+}
+.testimonial-item {
+  position: relative;
+  min-width: 100%;
+  display: block;
 }
 
 .testimonial-content {
