@@ -1,1055 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vaibhav Holidays - Travel Packages & Pricing</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Tariff - Vaibhav Holidays</title>
+    <meta name="description" content="Tariff Information and Package Rates" />
+    <meta name="keywords" content="Tariff, Package Rates, Vaibhav Holidays" />
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+    <!-- External (copied pattern from itinerary pages) -->
+    <link
+      rel="stylesheet"
+      href="https://www.blissfullytrip.com/assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.blissfullytrip.com/assets/css/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.blissfullytrip.com/assets/css/fontawesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.blissfullytrip.com/assets/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.blissfullytrip.com/assets/css/responsive.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-        color: #333;
+        background: #fff;
       }
-
-      .header {
-        background: linear-gradient(135deg, #005477 0%, #0066a0 100%);
-        color: white;
-        text-align: center;
-        padding: 70px 28px 60px; /* extra internal top/bottom padding */
-        position: relative;
-        overflow: hidden;
-        height: 42vh;
-        margin-top: 20px; /* space from fixed/global header include */
-        margin-bottom: 40px; /* space before first accordion */
-        border-radius: 0 0 28px 28px; /* soften bottom edge */
-      }
-
-      .header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        opacity: 0.3;
-      }
-
-      .header h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        position: relative;
-        z-index: 1;
-      }
-
-      .header p {
-        font-size: 1.2rem;
-        opacity: 0.95;
-        max-width: 600px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 40px 20px;
-      }
-
-      .faq-section {
-        margin-bottom: 20px;
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 84, 119, 0.1);
-        overflow: hidden;
+      /* Accordion base (reuse itinerary style) */
+      .accordion-content {
+        display: none !important;
         transition: all 0.3s ease;
       }
-
-      .faq-section:hover {
-        box-shadow: 0 15px 40px rgba(0, 84, 119, 0.15);
+      .accordion-content.show {
+        display: block !important;
       }
-
-      .faq-header {
-        background: linear-gradient(135deg, #005477, #0066a0);
-        color: white !important;
-        padding: 25px 30px;
+      .accordion-title {
         cursor: pointer;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
+        gap: 10px;
+        font-weight: 600;
+        padding: 14px 18px;
+        background: #f5f7fa;
+        border: 1px solid #e3e6ea;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #222;
       }
-
-      .faq-header::before {
+      .accordion-title i {
+        transition: transform 0.25s ease;
+      }
+      .accordion-title:hover {
+        background: #eef3f7;
+      }
+      .accro_head {
+        font-size: 1.05rem;
+        font-weight: 700;
+        padding: 14px 18px;
+        background: #0d5e85;
+        color: #fff;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .faq-accordion {
+        margin-bottom: 38px;
+      }
+      .page-title-area.tariff-hero {
+        position: relative;
+        background: url("../images/Tarrif/tarrif.jpg") center/cover no-repeat;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .page-title-area.tariff-hero::after {
         content: "";
         position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent
-        );
-        transition: left 0.5s ease;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
       }
-
-      .faq-header:hover::before {
-        left: 100%;
+      .page-title-content {
+        position: relative;
+        text-align: center;
+        color: #fff;
       }
-
-      .faq-header h2 {
-        font-size: 1.8rem;
+      .page-title-content h2 {
+        font-size: 48px;
         font-weight: 700;
-        margin: 0;
-        position: relative;
-        z-index: 1;
-        color: white !important;
+        margin: 0 0 6px;
+        letter-spacing: 0.5px;
       }
-
-      .faq-toggle {
-        font-size: 2rem;
-        font-weight: bold;
-        transition: transform 0.3s ease;
-        position: relative;
-        z-index: 1;
-        color: white !important;
+      .page-title-content h6 {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
-
-      .faq-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        background: #f8f9fa;
-      }
-
-      .faq-content.active {
-        max-height: 2000px;
-      }
-
-      .faq-inner {
-        padding: 30px;
-      }
-
+      /* Tables & cards */
       .package-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-bottom: 30px;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin: 10px 0 5px;
       }
-
       .package-card {
-        background: white;
+        background: #fff;
+        border: 1px solid #e2e6ea;
         border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0, 84, 119, 0.1);
-        border-left: 4px solid #005477;
-        transition: all 0.3s ease;
+        padding: 18px 18px 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
       }
-
-      .package-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 84, 119, 0.15);
+      .package-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 94, 133, 0.08),
+          rgba(0, 0, 0, 0)
+        );
+        opacity: 0;
+        transition: 0.35s;
       }
-
+      .package-card:hover::before {
+        opacity: 1;
+      }
       .package-title {
-        color: #005477;
-        font-size: 1.3rem;
+        font-size: 15px;
         font-weight: 700;
-        margin-bottom: 15px;
+        color: #0d5e85;
         text-align: center;
+        margin: 0 0 10px;
+        line-height: 1.35;
       }
-
-      .pricing-table {
+      .package-title small {
+        font-weight: 500;
+        display: block;
+        color: #444;
+        margin-top: 4px;
+      }
+      table.pricing-table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 15px;
+        font-size: 12.5px;
       }
-
-      .pricing-table th {
-        background: #005477;
-        color: white;
-        padding: 12px 8px;
-        font-size: 0.9rem;
-        text-align: center;
-      }
-
+      .pricing-table th,
       .pricing-table td {
-        padding: 10px 8px;
+        border: 1px solid #dbe1e6;
+        padding: 6px 6px;
         text-align: center;
-        border-bottom: 1px solid #eee;
-        font-size: 0.85rem;
       }
-
-      .pricing-table tr:nth-child(even) {
-        background: #f8f9fa;
+      .pricing-table th {
+        background: #0d5e85;
+        color: #fff;
+        font-size: 11px;
+        letter-spacing: 0.5px;
       }
-
-      .pricing-table tr:hover {
-        background: #e3f2fd;
+      .pricing-table tbody tr:nth-child(even) {
+        background: #f5f8fa;
       }
-
-      .cost-includes {
-        background: linear-gradient(135deg, #f8f9fa, #ffffff);
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px 0;
-        border-left: 4px solid #28a745;
+      .pricing-table tbody tr:hover {
+        background: #e6f2f8;
       }
-
-      .cost-includes h3 {
-        color: #28a745;
-        margin-bottom: 15px;
-        font-size: 1.2rem;
-      }
-
-      .cost-includes ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .cost-includes li {
-        margin-bottom: 8px;
-        padding-left: 25px;
+      /* Info blocks */
+      .cost-includes,
+      .notes {
+        background: #fff;
+        border: 1px solid #e2e6ea;
+        border-radius: 12px;
+        padding: 18px 20px 8px;
+        margin: 25px 0 8px;
         position: relative;
       }
-
+      .cost-includes h3,
+      .notes h3 {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #0d5e85;
+      }
+      .cost-includes ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 4px;
+        columns: 2;
+        column-gap: 40px;
+      }
+      .cost-includes li {
+        position: relative;
+        padding-left: 20px;
+        margin: 0 0 6px;
+        break-inside: avoid;
+        font-size: 13px;
+        line-height: 1.35;
+      }
       .cost-includes li::before {
-        content: "✓";
+        content: "\2713";
         position: absolute;
         left: 0;
-        color: #28a745;
-        font-weight: bold;
-      }
-
-      .notes {
-        background: linear-gradient(135deg, #fff3cd, #ffeeba);
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px 0;
-        border-left: 4px solid #ffc107;
-      }
-
-      .notes h3 {
-        color: #856404;
-        margin-bottom: 15px;
-        font-size: 1.2rem;
-      }
-
-      .notes p {
-        margin-bottom: 10px;
-        color: #856404;
-      }
-
-      .motto {
-        text-align: center;
-        margin: 60px auto 70px; /* top and bottom space */
-        padding: 35px 30px 38px;
-        background: linear-gradient(135deg, #005477, #0066a0);
-        color: white;
-        border-radius: 18px;
-        font-size: 1.5rem;
+        top: 0;
+        color: #118a44;
         font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        max-width: 1600px;
       }
-
-      @media (max-width: 768px) {
-        .header h1 {
-          font-size: 2.2rem;
+      .notes p,
+      .notes li {
+        font-size: 13px;
+        margin: 0 0 6px;
+        line-height: 1.35;
+      }
+      .notes {
+        background: linear-gradient(145deg, #fff, #f3f6f8);
+      }
+      .motto-box {
+        text-align: center;
+        background: linear-gradient(120deg, #0d5e85, #0f739f);
+        color: #fff;
+        padding: 32px 18px 38px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 30px;
+        margin: 55px auto 40px;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        max-width: 1200px;
+      }
+      .motto-box small {
+        display: block;
+        font-size: 16px;
+        margin-top: 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      /* Responsive tweaks */
+      @media (max-width: 992px) {
+        .page-title-content h2 {
+          font-size: 38px;
         }
-
-        .faq-header h2 {
-          font-size: 1.4rem;
+        .cost-includes ul {
+          columns: 1;
         }
-
-        .pricing-table th,
-        .pricing-table td {
-          padding: 8px 4px;
-          font-size: 0.75rem;
+      }
+      /* Mobile optimizations */
+      @media (max-width: 576px) {
+        .page-title-content h2 {
+          font-size: 30px;
         }
-
         .package-grid {
           grid-template-columns: 1fr;
         }
-
-        .container {
-          padding: 20px 15px;
+        .accordion-title {
+          font-size: 14px;
+          line-height: 1.25;
+          flex-wrap: wrap;
+        }
+        .accordion-title i {
+          margin-left: auto;
+        }
+        .package-card {
+          padding: 14px 12px 16px;
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .package-card::before {
+          display: none;
+        } /* simplify visuals */
+        table.pricing-table {
+          font-size: 11px;
+          min-width: 500px;
+        }
+        .pricing-table th,
+        .pricing-table td {
+          padding: 5px 6px;
+          white-space: nowrap;
+        }
+        .cost-includes ul {
+          columns: 1;
+        }
+        .motto-box {
+          font-size: 22px;
+          padding: 26px 16px 30px;
         }
       }
-
-      @media (max-width: 480px) {
-        .header {
-          padding: 50px 18px 45px;
-          margin-top: 10px;
-          margin-bottom: 30px;
-          height: auto;
+      /* Slightly wider small tablets */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .package-card {
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
         }
-
-        .header h1 {
-          font-size: 1.8rem;
-        }
-
-        .faq-header {
-          padding: 20px 15px;
-        }
-
-        .faq-inner {
-          padding: 20px 15px;
+        table.pricing-table {
+          min-width: 540px;
         }
       }
     </style>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/responsive.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div id="header-placeholder"></div>
-    <div class="header">
-      <img
-        src="../images/Tarrif/tarrif.jpg"
-        alt="Vaibhav Holidays - Tariff Hero"
-        style="
-          width: 100% !important;
-          height: 100% !important;
-          object-fit: cover !important;
-          position: absolute !important;
-          top: 0 !important;
-          left: 0 !important;
-          z-index: 0 !important;
-        "
-      />
-    </div>
-
-    <div class="container">
-      <!-- Darjeeling & Sikkim Section -->
-      <div class="faq-section">
-        <div class="faq-header" onclick="toggleFaq(this)">
-          <h2>🏔️ DARJEELING & SIKKIM</h2>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <div class="faq-inner">
-            <h3 style="color: #005477; margin-bottom: 20px">
-              Off Season Package Rates
-            </h3>
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">03 NIGHTS / 04 DAYS</div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Package</th>
-                      <th>02 Person</th>
-                      <th>04 Person</th>
-                      <th>06 Person</th>
-                      <th>08 Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Darjeeling</td>
-                      <td>₹15,600</td>
-                      <td>₹11,600</td>
-                      <td>₹10,200</td>
-                      <td>₹9,400</td>
-                    </tr>
-                    <tr>
-                      <td>Gangtok</td>
-                      <td>₹16,000</td>
-                      <td>₹11,800</td>
-                      <td>₹10,400</td>
-                      <td>₹9,600</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="package-card">
-                <div class="package-title">04 NIGHTS / 05 DAYS</div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Package</th>
-                      <th>02 Person</th>
-                      <th>04 Person</th>
-                      <th>06 Person</th>
-                      <th>08 Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Darjeeling & Gangtok</td>
-                      <td>₹20,400</td>
-                      <td>₹14,800</td>
-                      <td>₹12,800</td>
-                      <td>₹11,800</td>
-                    </tr>
-                    <tr>
-                      <td>Darjeeling & Kalimpong</td>
-                      <td>₹19,400</td>
-                      <td>₹14,400</td>
-                      <td>₹12,600</td>
-                      <td>₹11,800</td>
-                    </tr>
-                    <tr>
-                      <td>Gangtok & Lachung</td>
-                      <td>₹21,600</td>
-                      <td>₹16,000</td>
-                      <td>₹14,200</td>
-                      <td>₹13,200</td>
-                    </tr>
-                    <tr>
-                      <td>Gangtok & Pelling</td>
-                      <td>₹23,000</td>
-                      <td>₹16,800</td>
-                      <td>₹14,600</td>
-                      <td>₹13,600</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <h3 style="color: #005477; margin: 30px 0 20px 0">
-              Season Package Rates
-            </h3>
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">05 NIGHTS / 06 DAYS</div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Package</th>
-                      <th>02 Person</th>
-                      <th>04 Person</th>
-                      <th>06 Person</th>
-                      <th>08 Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Darjeeling & Gangtok</td>
-                      <td>₹31,800</td>
-                      <td>₹23,400</td>
-                      <td>₹20,500</td>
-                      <td>₹19,000</td>
-                    </tr>
-                    <tr>
-                      <td>Gangtok & Lachung</td>
-                      <td>₹34,300</td>
-                      <td>₹25,000</td>
-                      <td>₹22,000</td>
-                      <td>₹20,500</td>
-                    </tr>
-                    <tr>
-                      <td>North Sikkim</td>
-                      <td>₹37,400</td>
-                      <td>₹27,200</td>
-                      <td>₹23,800</td>
-                      <td>₹22,200</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="cost-includes">
-              <h3>💰 Cost Includes</h3>
-              <ul>
-                <li>Hotel Category – 3 Star</li>
-                <li>Accommodation on double sharing basis</li>
-                <li>Meal Plan – MAP (Breakfast & Dinner)</li>
-                <li>Exclusive private vehicle</li>
-                <li>Transfer & Sightseeing</li>
-                <li>Parking Charges</li>
-                <li>All permit fees & hotel taxes</li>
-              </ul>
-            </div>
-
-            <div class="notes">
-              <h3>📝 Important Notes</h3>
-              <p>• The above rates do not include GST</p>
-              <p>
-                • Off Season: January, February, March, July, August & September
-              </p>
-              <p>• Season: April, May, June, October, November & December</p>
-              <p>• AP (Breakfast, Lunch & Dinner) only for North Sikkim</p>
-              <p>
-                • Small cars not allowed in North Sikkim and Nathula Pass - Only
-                SUVs allowed
-              </p>
-              <p>• Rate chart for Indian Nationals only</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bhutan Section -->
-      <div class="faq-section">
-        <div class="faq-header" onclick="toggleFaq(this)">
-          <h2>🏯 BHUTAN</h2>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <div class="faq-inner">
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">
-                  05 NIGHTS / 06 DAYS<br /><small
-                    >Bagdogra Airport / NJP Railway Station</small
-                  >
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹37,800</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹28,770</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹25,620</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹24,990</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹24,150</td>
-                    </tr>
-                    <tr>
-                      <td>12 Person</td>
-                      <td>₹23,100</td>
-                    </tr>
-                    <tr>
-                      <td>14 Person</td>
-                      <td>₹22,680</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="package-card">
-                <div class="package-title">
-                  04 NIGHTS / 05 DAYS<br /><small
-                    >Paro Airport to Paro Airport</small
-                  >
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹30,450</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹23,520</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹21,000</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹19,530</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹18,480</td>
-                    </tr>
-                    <tr>
-                      <td>12 Person</td>
-                      <td>₹17,850</td>
-                    </tr>
-                    <tr>
-                      <td>14 Person</td>
-                      <td>₹17,010</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="cost-includes">
-              <h3>💰 Cost Includes</h3>
-              <ul>
-                <li>Hotel Category – 3 Star</li>
-                <li>Accommodation on double sharing basis</li>
-                <li>Meal Plan – MAP (Breakfast & Dinner)</li>
-                <li>Exclusive private vehicle</li>
-                <li>Transfer & Sightseeing</li>
-                <li>Immigration – Bhutan visa / permit</li>
-                <li>Bhutanese license holder English speaking guide</li>
-                <li>01 bottle mineral water per person per day</li>
-                <li>SDF charges (Bhutan Govt.)</li>
-                <li>Parking charges & Travel Insurance</li>
-                <li>GST & All permit fees</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bengal Section -->
-      <div class="faq-section">
-        <div class="faq-header" onclick="toggleFaq(this)">
-          <h2>🏛️ BENGAL | GANGASAGAR | MAYAPUR</h2>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <div class="faq-inner">
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">BENGAL: 02 NIGHTS / 03 DAYS</div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹11,550</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹10,395</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹9,450</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹9,555</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹9,135</td>
-                    </tr>
-                    <tr>
-                      <td>12 Person</td>
-                      <td>₹9,030</td>
-                    </tr>
-                    <tr>
-                      <td>15 Person</td>
-                      <td>₹8,505</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="package-card">
-                <div class="package-title">
-                  BENGAL & GANGASAGAR: 03 NIGHTS / 04 DAYS
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹17,850</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹15,540</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹13,755</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹13,965</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹13,440</td>
-                    </tr>
-                    <tr>
-                      <td>15 Person</td>
-                      <td>₹12,075</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="cost-includes">
-              <h3>💰 Cost Includes</h3>
-              <ul>
-                <li>Hotel Category – 3 Star Premium</li>
-                <li>Accommodation on double sharing basis</li>
-                <li>Meal Plan – CP (Only Breakfast)</li>
-                <li>Exclusive private AC vehicle</li>
-                <li>Transfer & Sightseeing</li>
-                <li>Ferry / Vessel charges (Lot 8 to Kachuberia)</li>
-                <li>Kachuberia to Gangasagar Cab fare (Non AC)</li>
-                <li>01 Liter mineral water bottle per person per day</li>
-                <li>Parking charges & GST</li>
-              </ul>
-            </div>
-
-            <div class="notes">
-              <h3>📝 Important Notes</h3>
-              <p>• Car roof luggage carrier not allowed in Kolkata</p>
-              <p>
-                • Vehicle types: Sedan (2-3 Person) | Innova (4-6 Person) |
-                Tempo Traveller
-              </p>
-              <p>• Rate chart for Indian Nationals only</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Andaman Section -->
-      <div class="faq-section">
-        <div class="faq-header" onclick="toggleFaq(this)">
-          <h2>🏝️ ANDAMAN</h2>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <div class="faq-inner">
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">
-                  03 NIGHTS / 04 DAYS<br /><small
-                    >Port Blair – 02 Nights | Havelock – 01 Night</small
-                  >
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹19,215</td>
-                    </tr>
-                    <tr>
-                      <td>03 Person</td>
-                      <td>₹17,430</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹17,325</td>
-                    </tr>
-                    <tr>
-                      <td>05 Person</td>
-                      <td>₹16,590</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹16,380</td>
-                    </tr>
-                    <tr>
-                      <td>07 Person</td>
-                      <td>₹16,065</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="package-card">
-                <div class="package-title">
-                  05 NIGHTS / 06 DAYS<br /><small
-                    >Port Blair – 03 Nights | Havelock – 01 Night | Neil – 01
-                    Night</small
-                  >
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹28,140</td>
-                    </tr>
-                    <tr>
-                      <td>03 Person</td>
-                      <td>₹25,515</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹24,990</td>
-                    </tr>
-                    <tr>
-                      <td>05 Person</td>
-                      <td>₹24,150</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹23,940</td>
-                    </tr>
-                    <tr>
-                      <td>07 Person</td>
-                      <td>₹23,415</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="cost-includes">
-              <h3>💰 Cost Includes</h3>
-              <ul>
-                <li>Hotel Category – 3 Star</li>
-                <li>AC accommodation on double sharing basis</li>
-                <li>Meal Plan – CP (Only Breakfast)</li>
-                <li>Exclusive AC private vehicle</li>
-                <li>
-                  Port Blair to Havelock via Pvt. AC Cruise (Premium class)
-                </li>
-                <li>All entry tickets & monument charges</li>
-                <li>All ferry tickets, boat tickets, parking charges</li>
-                <li>Full tour management support</li>
-                <li>Daily tour manager briefing</li>
-                <li>GST & All permit fees</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Puri & Bhubaneswar Section -->
-      <div class="faq-section">
-        <div class="faq-header" onclick="toggleFaq(this)">
-          <h2>🛕 PURI & BHUBANESWAR</h2>
-          <span class="faq-toggle">+</span>
-        </div>
-        <div class="faq-content">
-          <div class="faq-inner">
-            <div class="package-grid">
-              <div class="package-card">
-                <div class="package-title">
-                  PURI & BHUBANESWAR: 03 NIGHTS / 04 DAYS
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹16,485</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹13,230</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹11,865</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹11,970</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹11,340</td>
-                    </tr>
-                    <tr>
-                      <td>12 Person</td>
-                      <td>₹10,710</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="package-card">
-                <div class="package-title">
-                  PURI, BHUBANESWAR & CUTTACK: 05 NIGHTS / 06 DAYS
-                </div>
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th>Person</th>
-                      <th>Cost Per Person</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>02 Person</td>
-                      <td>₹20,790</td>
-                    </tr>
-                    <tr>
-                      <td>04 Person</td>
-                      <td>₹17,430</td>
-                    </tr>
-                    <tr>
-                      <td>06 Person</td>
-                      <td>₹15,225</td>
-                    </tr>
-                    <tr>
-                      <td>08 Person</td>
-                      <td>₹16,695</td>
-                    </tr>
-                    <tr>
-                      <td>10 Person</td>
-                      <td>₹15,540</td>
-                    </tr>
-                    <tr>
-                      <td>12 Person</td>
-                      <td>₹14,385</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="cost-includes">
-              <h3>💰 Cost Includes</h3>
-              <ul>
-                <li>Hotel Category – 3 Star</li>
-                <li>Accommodation on double sharing basis</li>
-                <li>Meal Plan – CP (Only Breakfast)</li>
-                <li>Exclusive AC private vehicle</li>
-                <li>Transfer & Sightseeing</li>
-                <li>Guide at Konark Temple</li>
-                <li>
-                  600 ML packaged drinking water bottle per person per day
-                </li>
-                <li>Parking charges & GST</li>
-                <li>All permit fees & hotel taxes</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="motto">
-        🌟 OUR MOTTO: SERVICE BEFORE SELF 🌟<br />
-        <div style="font-size: 1.2rem; margin-top: 10px">THANK YOU</div>
+    <div class="page-title-area tariff-hero">
+      <div class="page-title-content">
+        <h2>Tariff</h2>
+        <h6>Package Rates & Information</h6>
       </div>
     </div>
+
+    <section class="sec_padding50">
+      <div class="container">
+        <!-- Darjeeling & Sikkim -->
+        <div class="faq-accordion">
+          <div class="accro_head">🏔️ DARJEELING & SIKKIM</div>
+          <ul class="accordion">
+            <li class="accordion-item">
+              <a class="accordion-title" href="javascript:void(0)">
+                TARIFF DETAILS (OFF SEASON & SEASON)
+                <i class="fas fa-plus"></i>
+              </a>
+              <div class="accordion-content">
+                <h5
+                  style="margin: 18px 0 10px; color: #0d5e85; font-weight: 700"
+                >
+                  Off Season Package Rates
+                </h5>
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">03 NIGHTS / 04 DAYS</div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Package</th>
+                          <th>02</th>
+                          <th>04</th>
+                          <th>06</th>
+                          <th>08</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Darjeeling</td>
+                          <td>₹15,600</td>
+                          <td>₹11,600</td>
+                          <td>₹10,200</td>
+                          <td>₹9,400</td>
+                        </tr>
+                        <tr>
+                          <td>Gangtok</td>
+                          <td>₹16,000</td>
+                          <td>₹11,800</td>
+                          <td>₹10,400</td>
+                          <td>₹9,600</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="package-card">
+                    <div class="package-title">04 NIGHTS / 05 DAYS</div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Package</th>
+                          <th>02</th>
+                          <th>04</th>
+                          <th>06</th>
+                          <th>08</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Darjeeling & Gangtok</td>
+                          <td>₹20,400</td>
+                          <td>₹14,800</td>
+                          <td>₹12,800</td>
+                          <td>₹11,800</td>
+                        </tr>
+                        <tr>
+                          <td>Darjeeling & Kalimpong</td>
+                          <td>₹19,400</td>
+                          <td>₹14,400</td>
+                          <td>₹12,600</td>
+                          <td>₹11,800</td>
+                        </tr>
+                        <tr>
+                          <td>Gangtok & Lachung</td>
+                          <td>₹21,600</td>
+                          <td>₹16,000</td>
+                          <td>₹14,200</td>
+                          <td>₹13,200</td>
+                        </tr>
+                        <tr>
+                          <td>Gangtok & Pelling</td>
+                          <td>₹23,000</td>
+                          <td>₹16,800</td>
+                          <td>₹14,600</td>
+                          <td>₹13,600</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <h5
+                  style="margin: 28px 0 10px; color: #0d5e85; font-weight: 700"
+                >
+                  Season Package Rates (05 NIGHTS / 06 DAYS)
+                </h5>
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">05 NIGHTS / 06 DAYS</div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Package</th>
+                          <th>02</th>
+                          <th>04</th>
+                          <th>06</th>
+                          <th>08</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Darjeeling & Gangtok</td>
+                          <td>₹31,800</td>
+                          <td>₹23,400</td>
+                          <td>₹20,500</td>
+                          <td>₹19,000</td>
+                        </tr>
+                        <tr>
+                          <td>Gangtok & Lachung</td>
+                          <td>₹34,300</td>
+                          <td>₹25,000</td>
+                          <td>₹22,000</td>
+                          <td>₹20,500</td>
+                        </tr>
+                        <tr>
+                          <td>North Sikkim</td>
+                          <td>₹37,400</td>
+                          <td>₹27,200</td>
+                          <td>₹23,800</td>
+                          <td>₹22,200</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="cost-includes">
+                  <h3>💰 Cost Includes</h3>
+                  <ul>
+                    <li>Hotel Category – 3 Star</li>
+                    <li>Accommodation on double sharing basis</li>
+                    <li>Meal Plan – MAP (Breakfast & Dinner)</li>
+                    <li>Exclusive private vehicle</li>
+                    <li>Transfer & Sightseeing</li>
+                    <li>Parking Charges</li>
+                    <li>All permit fees & hotel taxes</li>
+                  </ul>
+                </div>
+                <div class="notes">
+                  <h3>📝 Important Notes</h3>
+                  <p>The above rates do not include GST.</p>
+                  <p>Off Season: Jan, Feb, Mar, Jul, Aug & Sep.</p>
+                  <p>Season: Apr, May, Jun, Oct, Nov & Dec.</p>
+                  <p>AP (Breakfast, Lunch & Dinner) only for North Sikkim.</p>
+                  <p>
+                    Small cars not allowed in North Sikkim & Nathula Pass – only
+                    SUVs.
+                  </p>
+                  <p>Rate chart for Indian Nationals only.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bhutan -->
+        <div class="faq-accordion">
+          <div class="accro_head">🏯 BHUTAN</div>
+          <ul class="accordion">
+            <li class="accordion-item">
+              <a class="accordion-title" href="javascript:void(0)">
+                TARIFF DETAILS <i class="fas fa-plus"></i>
+              </a>
+              <div class="accordion-content">
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">
+                      05 NIGHTS / 06 DAYS
+                      <small>Bagdogra Airport / NJP Railway Station</small>
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹37,800</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹28,770</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹25,620</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹24,990</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹24,150</td>
+                        </tr>
+                        <tr>
+                          <td>12 Person</td>
+                          <td>₹23,100</td>
+                        </tr>
+                        <tr>
+                          <td>14 Person</td>
+                          <td>₹22,680</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="package-card">
+                    <div class="package-title">
+                      04 NIGHTS / 05 DAYS
+                      <small>Paro Airport – Paro Airport</small>
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹30,450</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹23,520</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹21,000</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹19,530</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹18,480</td>
+                        </tr>
+                        <tr>
+                          <td>12 Person</td>
+                          <td>₹17,850</td>
+                        </tr>
+                        <tr>
+                          <td>14 Person</td>
+                          <td>₹17,010</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="cost-includes">
+                  <h3>💰 Cost Includes</h3>
+                  <ul>
+                    <li>Hotel Category – 3 Star</li>
+                    <li>Accommodation on double sharing basis</li>
+                    <li>Meal Plan – MAP (Breakfast & Dinner)</li>
+                    <li>Exclusive private vehicle</li>
+                    <li>Transfer & Sightseeing</li>
+                    <li>Immigration – Bhutan visa / permit</li>
+                    <li>English speaking Bhutanese guide</li>
+                    <li>01 bottle mineral water pp per day</li>
+                    <li>SDF charges (Bhutan Govt.)</li>
+                    <li>Parking charges & Travel Insurance</li>
+                    <li>GST & All permit fees</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bengal / Gangasagar / Mayapur -->
+        <div class="faq-accordion">
+          <div class="accro_head">🏛️ BENGAL | GANGASAGAR | MAYAPUR</div>
+          <ul class="accordion">
+            <li class="accordion-item">
+              <a class="accordion-title" href="javascript:void(0)">
+                TARIFF DETAILS <i class="fas fa-plus"></i>
+              </a>
+              <div class="accordion-content">
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">BENGAL 02 NIGHTS / 03 DAYS</div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹11,550</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹10,395</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹9,450</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹9,555</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹9,135</td>
+                        </tr>
+                        <tr>
+                          <td>12 Person</td>
+                          <td>₹9,030</td>
+                        </tr>
+                        <tr>
+                          <td>15 Person</td>
+                          <td>₹8,505</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="package-card">
+                    <div class="package-title">
+                      BENGAL & GANGASAGAR 03 NIGHTS / 04 DAYS
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹17,850</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹15,540</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹13,755</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹13,965</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹13,440</td>
+                        </tr>
+                        <tr>
+                          <td>15 Person</td>
+                          <td>₹12,075</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="cost-includes">
+                  <h3>💰 Cost Includes</h3>
+                  <ul>
+                    <li>Hotel Category – 3 Star Premium</li>
+                    <li>Accommodation on double sharing basis</li>
+                    <li>Meal Plan – CP (Only Breakfast)</li>
+                    <li>Exclusive private AC vehicle</li>
+                    <li>Transfer & Sightseeing</li>
+                    <li>Ferry / Vessel charges (Lot 8 to Kachuberia)</li>
+                    <li>Kachuberia to Gangasagar Cab fare (Non AC)</li>
+                    <li>01 Liter mineral water bottle pp per day</li>
+                    <li>Parking charges & GST</li>
+                  </ul>
+                </div>
+                <div class="notes">
+                  <h3>📝 Important Notes</h3>
+                  <p>Car roof luggage carrier not allowed in Kolkata.</p>
+                  <p>
+                    Vehicle types: Sedan (2-3 Person) | Innova (4-6 Person) |
+                    Tempo Traveller.
+                  </p>
+                  <p>Rate chart for Indian Nationals only.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Andaman -->
+        <div class="faq-accordion">
+          <div class="accro_head">🏝️ ANDAMAN</div>
+          <ul class="accordion">
+            <li class="accordion-item">
+              <a class="accordion-title" href="javascript:void(0)">
+                TARIFF DETAILS <i class="fas fa-plus"></i>
+              </a>
+              <div class="accordion-content">
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">
+                      03 NIGHTS / 04 DAYS
+                      <small>Port Blair 02N | Havelock 01N</small>
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹19,215</td>
+                        </tr>
+                        <tr>
+                          <td>03 Person</td>
+                          <td>₹17,430</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹17,325</td>
+                        </tr>
+                        <tr>
+                          <td>05 Person</td>
+                          <td>₹16,590</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹16,380</td>
+                        </tr>
+                        <tr>
+                          <td>07 Person</td>
+                          <td>₹16,065</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="package-card">
+                    <div class="package-title">
+                      05 NIGHTS / 06 DAYS
+                      <small>Port Blair 03N | Havelock 01N | Neil 01N</small>
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹28,140</td>
+                        </tr>
+                        <tr>
+                          <td>03 Person</td>
+                          <td>₹25,515</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹24,990</td>
+                        </tr>
+                        <tr>
+                          <td>05 Person</td>
+                          <td>₹24,150</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹23,940</td>
+                        </tr>
+                        <tr>
+                          <td>07 Person</td>
+                          <td>₹23,415</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="cost-includes">
+                  <h3>💰 Cost Includes</h3>
+                  <ul>
+                    <li>Hotel Category – 3 Star</li>
+                    <li>AC accommodation on double sharing basis</li>
+                    <li>Meal Plan – CP (Only Breakfast)</li>
+                    <li>Exclusive AC private vehicle</li>
+                    <li>Port Blair ↔ Havelock via Pvt. AC Cruise (Premium)</li>
+                    <li>All entry & monument charges</li>
+                    <li>All ferry & boat tickets, parking charges</li>
+                    <li>Full tour management support</li>
+                    <li>Daily tour manager briefing</li>
+                    <li>GST & All permit fees</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Puri & Bhubaneswar -->
+        <div class="faq-accordion">
+          <div class="accro_head">🛕 PURI & BHUBANESWAR</div>
+          <ul class="accordion">
+            <li class="accordion-item">
+              <a class="accordion-title" href="javascript:void(0)">
+                TARIFF DETAILS <i class="fas fa-plus"></i>
+              </a>
+              <div class="accordion-content">
+                <div class="package-grid">
+                  <div class="package-card">
+                    <div class="package-title">
+                      PURI & BHUBANESWAR 03 NIGHTS / 04 DAYS
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹16,485</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹13,230</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹11,865</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹11,970</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹11,340</td>
+                        </tr>
+                        <tr>
+                          <td>12 Person</td>
+                          <td>₹10,710</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="package-card">
+                    <div class="package-title">
+                      PURI, BHUBANESWAR & CUTTACK 05 NIGHTS / 06 DAYS
+                    </div>
+                    <table class="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Person</th>
+                          <th>Cost / Person</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>02 Person</td>
+                          <td>₹20,790</td>
+                        </tr>
+                        <tr>
+                          <td>04 Person</td>
+                          <td>₹17,430</td>
+                        </tr>
+                        <tr>
+                          <td>06 Person</td>
+                          <td>₹15,225</td>
+                        </tr>
+                        <tr>
+                          <td>08 Person</td>
+                          <td>₹16,695</td>
+                        </tr>
+                        <tr>
+                          <td>10 Person</td>
+                          <td>₹15,540</td>
+                        </tr>
+                        <tr>
+                          <td>12 Person</td>
+                          <td>₹14,385</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="cost-includes">
+                  <h3>💰 Cost Includes</h3>
+                  <ul>
+                    <li>Hotel Category – 3 Star</li>
+                    <li>Accommodation on double sharing basis</li>
+                    <li>Meal Plan – CP (Only Breakfast)</li>
+                    <li>Exclusive AC private vehicle</li>
+                    <li>Transfer & Sightseeing</li>
+                    <li>Guide at Konark Temple</li>
+                    <li>600 ML packaged drinking water bottle pp per day</li>
+                    <li>Parking charges & GST</li>
+                    <li>All permit fees & hotel taxes</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="motto-box">
+          🌟 OUR MOTTO: SERVICE BEFORE SELF 🌟 <small>THANK YOU</small>
+        </div>
+      </div>
+    </section>
 
     <div id="footer-placeholder"></div>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/layout.js"></script>
-
+    <!-- Scripts -->
+    <script src="https://www.blissfullytrip.com/assets/js/jquery.min.js"></script>
+    <script src="https://www.blissfullytrip.com/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.blissfullytrip.com/assets/js/main.js"></script>
     <script>
-      function toggleFaq(element) {
-        const content = element.nextElementSibling;
-        const toggle = element.querySelector(".faq-toggle");
-
-        // Close all other FAQ sections
-        const allContents = document.querySelectorAll(".faq-content");
-        const allToggles = document.querySelectorAll(".faq-toggle");
-
-        allContents.forEach((item, index) => {
-          if (item !== content) {
-            item.classList.remove("active");
-            allToggles[index].textContent = "+";
-            allToggles[index].style.transform = "rotate(0deg)";
-          }
-        });
-
-        // Toggle current section
-        if (content.classList.contains("active")) {
-          content.classList.remove("active");
-          toggle.textContent = "+";
-          toggle.style.transform = "rotate(0deg)";
-        } else {
-          content.classList.add("active");
-          toggle.textContent = "−";
-          toggle.style.transform = "rotate(180deg)";
-        }
-      }
-
-      // Add smooth scrolling and enhanced interactions
-      document.addEventListener("DOMContentLoaded", function () {
-        // Add hover effects to pricing tables
-        const tables = document.querySelectorAll(".pricing-table");
-        tables.forEach((table) => {
-          const rows = table.querySelectorAll("tbody tr");
-          rows.forEach((row) => {
-            row.addEventListener("mouseenter", function () {
-              this.style.transform = "scale(1.02)";
-              this.style.transition = "all 0.2s ease";
+      document.addEventListener("DOMContentLoaded", () => {
+        const titles = document.querySelectorAll(".accordion-title");
+        titles.forEach((t) => {
+          t.addEventListener("click", (e) => {
+            e.preventDefault();
+            const item = t.parentElement;
+            const content = item.querySelector(".accordion-content");
+            const icon = t.querySelector(".fas");
+            const container = item.closest(".accordion");
+            const open = content.classList.contains("show");
+            // close siblings
+            container
+              .querySelectorAll(".accordion-content")
+              .forEach((c) => c.classList.remove("show"));
+            container.querySelectorAll(".accordion-title .fas").forEach((i) => {
+              i.classList.remove("fa-minus");
+              i.classList.add("fa-plus");
             });
-            row.addEventListener("mouseleave", function () {
-              this.style.transform = "scale(1)";
-            });
-          });
-        });
-
-        // Add animation for cards on scroll
-        const cards = document.querySelectorAll(".package-card");
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
+            if (!open) {
+              content.classList.add("show");
+              icon.classList.remove("fa-plus");
+              icon.classList.add("fa-minus");
             }
           });
-        }, observerOptions);
-
-        cards.forEach((card) => {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(20px)";
-          card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          observer.observe(card);
         });
       });
     </script>
+    <script src="../js/layout.js"></script>
   </body>
 </html>
