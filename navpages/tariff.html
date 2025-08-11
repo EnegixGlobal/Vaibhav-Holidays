@@ -22,10 +22,13 @@
         background: linear-gradient(135deg, #005477 0%, #0066a0 100%);
         color: white;
         text-align: center;
-        padding: 56px 28px;
+        padding: 70px 28px 60px; /* extra internal top/bottom padding */
         position: relative;
         overflow: hidden;
-        height: 40vh;
+        height: 42vh;
+        margin-top: 20px; /* space from fixed/global header include */
+        margin-bottom: 40px; /* space before first accordion */
+        border-radius: 0 0 28px 28px; /* soften bottom edge */
       }
 
       .header::before {
@@ -254,14 +257,15 @@
 
       .motto {
         text-align: center;
-        margin-top: 50px;
-        padding: 30px;
+        margin: 60px auto 70px; /* top and bottom space */
+        padding: 35px 30px 38px;
         background: linear-gradient(135deg, #005477, #0066a0);
         color: white;
-        border-radius: 15px;
+        border-radius: 18px;
         font-size: 1.5rem;
         font-weight: 700;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        max-width: 1600px;
       }
 
       @media (max-width: 768px) {
@@ -290,7 +294,10 @@
 
       @media (max-width: 480px) {
         .header {
-          padding: 30px 15px;
+          padding: 50px 18px 45px;
+          margin-top: 10px;
+          margin-bottom: 30px;
+          height: auto;
         }
 
         .header h1 {
