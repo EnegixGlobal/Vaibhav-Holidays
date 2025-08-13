@@ -28,11 +28,16 @@ body {
 }
 
 #header.scrolled {
-  background: rgba(0, 0, 0, 0.8);
+  background: transparent;
+}
+
+/* Avoid double dark layers: when scrolled, let header background show and keep top bar transparent */
+#header.scrolled .top-bar {
+  background: transparent;
 }
 
 .top-bar {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.25);
   padding: 8px 0;
   font-size: 14px;
 }
