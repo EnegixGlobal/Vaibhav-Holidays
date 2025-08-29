@@ -114,6 +114,166 @@
           padding: 10px 14px;
         }
       }
+      /* Departures card list */
+      .dep-list {
+        padding: 8px 0 42px;
+      }
+      .dep-card {
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        border: 2px solid #b34747; /* red outline like screenshot */
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+        display: grid;
+        grid-template-columns: 1.3fr 2fr;
+        align-items: stretch;
+        margin: 10px 0 18px;
+      }
+      .dep-card-media {
+        position: relative;
+        min-height: 210px;
+      }
+      .dep-card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .dep-card-body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 18px;
+        padding: 18px 20px;
+        position: relative;
+      }
+      .dep-card-main h3 {
+        margin: 4px 0 8px;
+        font-size: 20px;
+        color: #1f2937;
+      }
+      .dep-card-main p {
+        margin: 0 0 16px;
+        color: #4b5563;
+        line-height: 1.55;
+      }
+      .dep-card-meta {
+        padding-left: 18px;
+        border-left: 1px solid #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: flex-start;
+      }
+      .dep-meta-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .dep-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #374151;
+        font-weight: 500;
+      }
+      .dep-meta-item i {
+        color: #a63a3a;
+        width: 18px;
+        text-align: center;
+      }
+      .dep-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .badge.muted {
+        background: #f3f4f6;
+        color: #6b7280;
+      }
+      .badge.date {
+        background: #f5d66d;
+        color: #6b5a00;
+      }
+      .btn-view {
+        display: inline-block;
+        background: #8e2020;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: filter 0.2s ease;
+      }
+      .btn-view:hover {
+        filter: brightness(0.95);
+      }
+
+      @media (max-width: 992px) {
+        .dep-card {
+          grid-template-columns: 1fr;
+        }
+        .dep-card-media {
+          height: 220px;
+        }
+        .dep-card-body {
+          grid-template-columns: 1fr;
+        }
+        .dep-card-meta {
+          border-left: none;
+          padding-left: 0;
+          border-top: 1px solid #e5e7eb;
+          padding-top: 12px;
+        }
+      }
+      @media (max-width: 576px) {
+        .dep-card-media {
+          height: 200px;
+        }
+        .dep-card-main h3 {
+          font-size: 18px;
+        }
+        .dep-card-main p {
+          font-size: 14px;
+        }
+        /* Center inner content on mobile only */
+        .dep-card-body {
+          text-align: center;
+        }
+        .dep-card-main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn-view {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .dep-card-meta {
+          align-items: center;
+        }
+        .dep-meta-list {
+          justify-items: center;
+        }
+        .dep-meta-item {
+          justify-content: center;
+          text-align: center;
+        }
+        .dep-badges {
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -246,6 +406,54 @@
           <div class="depfilter-actions">
             <button class="btn-clear" id="clear-months">Clear All</button>
           </div>
+        </section>
+
+        <!-- Bengal departures card -->
+        <section class="dep-list">
+          <article class="dep-card" data-category="bengal">
+            <div class="dep-card-media">
+              <img
+                src="../images/Images-of-departure/bengal.jpg"
+                alt="Bengal group departure scenic view"
+                loading="lazy"
+              />
+            </div>
+            <div class="dep-card-body">
+              <div class="dep-card-main">
+                <h3>Journeys for Climate Action</h3>
+                <p>
+                  Go from a traveller to a change-maker this season, and make
+                  your travel meaningful—for the place and people you visit.
+                  Join us in Bengal for a one-of-a-kind experience.
+                </p>
+                <a class="btn-view" href="../iti/bengal.html">VIEW PROGRAM</a>
+              </div>
+              <aside class="dep-card-meta" aria-label="Trip details">
+                <ul class="dep-meta-list">
+                  <li class="dep-meta-item">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i
+                    ><span>May to Oct</span>
+                  </li>
+                  <li class="dep-meta-item">
+                    <i class="fas fa-clock" aria-hidden="true"></i
+                    ><span>7 Days Travel</span>
+                  </li>
+                  <li class="dep-meta-item">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i
+                    ><span>Kolkata</span>
+                  </li>
+                  <li class="dep-meta-item">
+                    <i class="fas fa-rupee-sign" aria-hidden="true"></i
+                    ><span>24,990</span>
+                  </li>
+                </ul>
+                <div class="dep-badges">
+                  <span class="badge muted">Fixed Departures</span>
+                  <span class="badge date">7 Sept - 13 Sept</span>
+                </div>
+              </aside>
+            </div>
+          </article>
         </section>
       </div>
     </main>
