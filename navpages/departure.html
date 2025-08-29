@@ -102,6 +102,10 @@
         .depfilter .depfilter-title {
           font-size: 26px;
         }
+        /* Hide the entire categories strip on mobile only */
+        .depfilter .depfilter-categories {
+          display: none;
+        }
         .depfilter .depfilter-months {
           gap: 10px;
           grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
@@ -251,6 +255,11 @@
       }
       /* Desktop alignment: center content vertically with comfortable spacing */
       @media (min-width: 993px) {
+        .dep-card {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .dep-card-body {
           padding-top: 28px;
           padding-bottom: 28px;
