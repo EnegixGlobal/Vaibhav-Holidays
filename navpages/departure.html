@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Departures - Vaibhav Holidays</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/page-template.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Scoped styles for Departures filter UI */
+      .depfilter {
+        padding: 36px 0 28px;
+        text-align: center;
+      }
+      .depfilter .depfilter-categories {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 8px auto 18px;
+      }
+      .depfilter .chip {
+        appearance: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 999px;
+        padding: 10px 18px;
+        background: #f3f4f6;
+        color: #6b7280;
+        font-weight: 500;
+        font-family: inherit;
+        font-size: 14px;
+        transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .depfilter .chip:hover {
+        background: #eaecef;
+      }
+      .depfilter .chip:focus-visible {
+        box-shadow: 0 0 0 3px rgba(241, 184, 0, 0.35);
+      }
+      .depfilter .chip.active {
+        background: #f1b800;
+        color: #ffffff;
+      }
+
+      .depfilter .depfilter-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin: 6px 0 16px;
+        color: #a12626;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+
+      .depfilter .depfilter-months {
+        max-width: 860px;
+        margin: 0 auto;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+      .depfilter .chip-month {
+        padding: 12px 16px;
+        background: #f3f4f6;
+        color: #6b7280;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+      .depfilter .chip-month.active {
+        background: #f1b800;
+        color: #ffffff;
+      }
+
+      .depfilter .depfilter-actions {
+        margin-top: 18px;
+      }
+      .depfilter .btn-clear {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 18px;
+        background: #f1b800;
+        color: #1f2937;
+        font-weight: 600;
+        cursor: pointer;
+        transition: filter 0.2s ease;
+      }
+      .depfilter .btn-clear:hover {
+        filter: brightness(0.95);
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 576px) {
+        .depfilter {
+          padding: 28px 0 22px;
+        }
+        .depfilter .depfilter-title {
+          font-size: 26px;
+        }
+        .depfilter .depfilter-months {
+          gap: 10px;
+          grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        }
+        .depfilter .chip {
+          padding: 9px 14px;
+          font-size: 13px;
+        }
+        .depfilter .chip-month {
+          padding: 10px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Include -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Hero (same style and image as About page) -->
+    <section
+      class="page-hero"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+          ),
+          url('../images/aboutus/1.jpeg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="container page-hero-content">
+        <h1>Upcoming Departures</h1>
+        <p>Group schedules and availability</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <main class="page-content">
+      <div class="container">
+        <section class="depfilter" aria-label="Departures Filter">
+          <div
+            class="depfilter-categories"
+            role="tablist"
+            aria-label="Trip categories"
+          >
+            <button
+              class="chip chip-cat active"
+              role="tab"
+              aria-selected="true"
+              data-category="all"
+            >
+              All Trips
+            </button>
+            <button
+              class="chip chip-cat"
+              role="tab"
+              aria-selected="false"
+              data-category="spiti"
+            >
+              Spiti
+            </button>
+            <button
+              class="chip chip-cat"
+              role="tab"
+              aria-selected="false"
+              data-category="zanskar"
+            >
+              Zanskar
+            </button>
+            <button
+              class="chip chip-cat"
+              role="tab"
+              aria-selected="false"
+              data-category="ladakh"
+            >
+              Ladakh
+            </button>
+            <button
+              class="chip chip-cat"
+              role="tab"
+              aria-selected="false"
+              data-category="north-east"
+            >
+              North East
+            </button>
+          </div>
+
+          <h2 class="depfilter-title">Choose a Month</h2>
+
+          <div class="depfilter-months" role="group" aria-label="Choose months">
+            <button class="chip chip-month" aria-pressed="false" data-month="1">
+              January
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="2">
+              February
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="3">
+              March
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="4">
+              April
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="5">
+              May
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="6">
+              June
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="7">
+              July
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="8">
+              August
+            </button>
+            <button class="chip chip-month" aria-pressed="false" data-month="9">
+              September
+            </button>
+            <button
+              class="chip chip-month"
+              aria-pressed="false"
+              data-month="10"
+            >
+              October
+            </button>
+            <button
+              class="chip chip-month"
+              aria-pressed="false"
+              data-month="11"
+            >
+              November
+            </button>
+            <button
+              class="chip chip-month"
+              aria-pressed="false"
+              data-month="12"
+            >
+              December
+            </button>
+          </div>
+
+          <div class="depfilter-actions">
+            <button class="btn-clear" id="clear-months">Clear All</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer Include -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/layout.js"></script>
+    <script>
+      // Interactions for Departures filter UI (scoped)
+      window.addEventListener("DOMContentLoaded", function () {
+        const catChips = document.querySelectorAll(".depfilter .chip-cat");
+        const monthChips = document.querySelectorAll(".depfilter .chip-month");
+        const clearBtn = document.getElementById("clear-months");
+
+        // Category: single select
+        catChips.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            catChips.forEach((b) => {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+            });
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+          });
+        });
+
+        // Months: multi-select
+        monthChips.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const isActive = btn.classList.toggle("active");
+            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+        });
+
+        // Clear only month selections
+        if (clearBtn) {
+          clearBtn.addEventListener("click", () => {
+            monthChips.forEach((b) => {
+              b.classList.remove("active");
+              b.setAttribute("aria-pressed", "false");
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
