@@ -123,11 +123,23 @@
         overflow: hidden;
         background: #fff;
         border: 2px solid #b34747; /* red outline like screenshot */
-        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+        /* Deeper, layered shadow like reference */
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2),
+          /* ambient */ 0 4px 12px rgba(0, 0, 0, 0.12); /* contact */
         display: grid;
         grid-template-columns: 1.3fr 2fr;
         align-items: stretch;
-        margin: 10px 0 18px;
+        margin: 40px 0 56px;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        will-change: box-shadow, transform;
+      }
+
+      /* Subtle lift on hover/focus to enhance depth */
+      .dep-card:hover,
+      .dep-card:focus-within {
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.26),
+          0 8px 18px rgba(0, 0, 0, 0.14);
+        transform: translateY(-2px);
       }
       .dep-card-media {
         position: relative;
